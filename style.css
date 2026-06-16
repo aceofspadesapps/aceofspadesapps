@@ -1,0 +1,270 @@
+/* Import a luxury serif font for headers */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&display=swap');
+
+/* Custom variables for the Ace of Spades aesthetic */
+:root {
+    --bg-dark: #0a0a0a;
+    --card-bg: #111111;
+    --gold: #d4af37;        /* Premium Metallic Gold */
+    --gold-glow: #f3e5ab;   /* Light Champagne for highlights */
+    --gold-dark: #aa7c11;   /* Deep Gold for borders/gradients */
+    --gold-mute: #8c6d23;   /* Subdued Gold for subtle lines */
+    --text-light: #f5f5f5;  /* Crisp off-white */
+    --text-muted: #bfa873;  /* Muted gold-tinted text */
+    --border: #2c2414;      /* Deep gold-tinted dark border */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header & Navigation */
+header {
+    background-color: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid var(--gold-mute);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    border: 1px solid var(--gold);
+}
+
+.brand-name {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--gold);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+/* Hero Banner Section */
+.hero {
+    position: relative;
+    height: 40vh;
+    background: linear-gradient(rgba(10,10,10,0.5), rgba(21,17,8,0.3), var(--bg-dark)), url('banner.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(212, 175, 55, 0.6);
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    color: var(--gold);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.9);
+}
+
+/* Main Container Layout */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+/* App Showcase Grid */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.app-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.app-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.2); 
+}
+
+.app-card:hover .btn {
+    transform: scale(1.03);
+    background-position: right center;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+.app-icon-placeholder {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #16130c, #261f10);
+    border: 1px solid var(--gold);
+    border-radius: 14px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: var(--gold);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.app-card h3 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 12px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.app-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-glow));
+    background-size: 200% auto;
+    color: #000;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s, box-shadow 0.2s, background-position 0.2s;
+}
+
+/* Form Styles for Support */
+.support-form {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--gold);
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    outline: none;
+}
+
+/* Legal text block for Privacy Policy */
+.legal-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.legal-box h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    margin: 25px 0 10px;
+    font-size: 1.4rem;
+}
+
+.legal-box p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
