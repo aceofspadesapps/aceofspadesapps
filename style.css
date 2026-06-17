@@ -268,3 +268,62 @@ footer {
     color: var(--text-muted);
     font-size: 0.85rem;
 }
+
+/* ==========================================
+   RESPONSIVE MOBILE STYLING (FIX)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* Header layout correction */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px 2%;
+    }
+
+    .brand-name {
+        font-size: 1.1rem;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Fixed Hero overflow issue */
+    .hero {
+        height: auto;          /* Overrides the restrictive vh limit */
+        padding: 60px 20px;   /* Uses clean padding to scale naturally */
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;    /* Scales the massive font down for phones */
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    /* Content containers */
+    .container {
+        margin: 20px auto;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+
+    .app-grid {
+        grid-template-columns: 1fr; /* Forces cards to stack neatly in one column */
+        gap: 20px;
+    }
+
+    .legal-box {
+        padding: 20px; /* Gives padding back to text inside the privacy boxes */
+    }
+}
