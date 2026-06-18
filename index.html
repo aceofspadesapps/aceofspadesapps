@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Global Typography Overrides */
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: #050505;
@@ -20,23 +19,84 @@
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Cinzel', serif;
         }
 
         .tech-mono {
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        /* Smooth Page Load Animation */
         @keyframes pageFadeIn {
             0% { opacity: 0; transform: translateY(10px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* Feature Matrix Layout */
+        /* Responsive Flex Wrapper for Apps */
+        .app-row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            background: #0c0c0c;
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            gap: 0;
+        }
+
+        .app-col-left {
+            flex: 1 1 450px;
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .app-col-right {
+            flex: 1 1 450px;
+            background: linear-gradient(135deg, #0f0f0f 0%, #050505 100%);
+            padding: 35px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            min-height: 480px;
+        }
+
+        .preview-slider-container {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 5px;
+            width: 100%;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(212,175,55,0.3) rgba(0,0,0,0.2);
+        }
+        
+        .preview-slider-container::-webkit-scrollbar { height: 6px; }
+        .preview-slider-container::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.2); }
+        .preview-slider-container::-webkit-scrollbar-thumb { background-color: rgba(212,175,55,0.4); border-radius: 10px; }
+
+        .slider-item {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            background: #080808;
+            display: flex;
+            align-items: center;
+        }
+
+        .item-wide { width: 280px; height: auto; }
+        .item-tall { width: 160px; height: auto; }
+        .slider-item img { width: 100%; height: auto; display: block; }
+
         .matrix-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
@@ -65,16 +125,29 @@
         .matrix-feature h4 { color: #ffffff; font-size: 0.95rem; margin: 0 0 5px 0; font-weight: 600; }
         .matrix-feature p { color: var(--text-muted, #888); font-size: 0.85rem; line-height: 1.5; margin: 0; }
 
-        /* Custom Section Divider */
         .app-divider {
             border: 0;
             height: 1px;
             background: linear-gradient(to right, rgba(0,0,0,0), rgba(212,175,55,0.2) 50%, rgba(0,0,0,0));
-            margin: 80px auto;
+            margin: 60px auto;
             max-width: 900px;
         }
 
-        /* Pulsing Live Dot Animation */
+        .coming-soon-placeholder {
+            flex: 1 1 450px;
+            background: radial-gradient(circle at center, #0f0f0f 0%, #050505 100%);
+            border: 1px dashed rgba(212,175,55,0.15);
+            border-radius: 12px;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 480px;
+            box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+        }
+
         .pulse-dot {
             display: inline-block;
             width: 7px;
@@ -83,3 +156,101 @@
             border-radius: 50%;
             margin-right: 6px;
             vertical-align: middle;
+            box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+            animation: pulse 1.6s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+        }
+
+        .changelog-section {
+            max-width: 800px;
+            margin: 60px auto 20px auto;
+            padding: 0 20px;
+        }
+        .changelog-container {
+            border-left: 2px solid rgba(212,175,55,0.15);
+            padding-left: 25px;
+            margin-top: 30px;
+        }
+        .changelog-item { position: relative; margin-bottom: 30px; }
+        .changelog-item::before {
+            content: ''; position: absolute; left: -31px; top: 5px; width: 10px; height: 10px;
+            background: #050505; border: 2px solid var(--gold, #d4af37); border-radius: 50%;
+        }
+        .changelog-version { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--gold, #d4af37); font-size: 0.9rem; }
+        .changelog-date { font-size: 0.75rem; color: #666; margin-left: 10px; }
+        .changelog-text { color: #aaa; font-size: 0.85rem; margin: 5px 0 0 0; line-height: 1.5; }
+
+        /* Core Mobile UI Adjustments */
+        @media (max-width: 768px) {
+            .app-col-left { padding: 30px 20px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.04); flex-basis: 100%; }
+            .app-col-right { padding: 25px 15px; min-height: auto; flex-basis: 100%; }
+            .coming-soon-placeholder { min-height: 350px; flex-basis: 100%; }
+            .app-divider { margin: 40px auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <span class="brand-name">Ace of Spades Apps</span>
+        </div>
+        <nav>
+            <a href="index.html" class="active">Showcase</a>
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </nav>
+    </header>
+
+    <section class="hero" style="padding-bottom: 10px;">
+        <h1>Ace of Spades Apps</h1>
+        <p>Premium Experiences, Handcrafted Details</p>
+    </section>
+
+    <section style="max-width: 800px; margin: 0 auto 40px auto; text-align: center; padding: 0 20px;">
+        <p style="color: #ffffff; font-size: 1.05rem; line-height: 1.6; font-weight: 300; letter-spacing: 0.5px;">
+            Ace of Spades architecture handles your mobile utilities with complete server isolation. No cloud accounts. No background analytics. Built exclusively for those who demand absolute device sovereignty.
+        </p>
+    </section>
+
+    <section style="background: #0d0d0d; border-bottom: 1px solid var(--border); padding: 30px 20px; text-align: center;">
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
+            <div>
+                <span style="color: var(--gold); font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">✦ Elite Performance</span>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">Lightweight, optimized architecture.</p>
+            </div>
+            <div>
+                <span style="color: var(--gold); font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">✦ Total Privacy</span>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">Zero tracking. Your data stays yours.</p>
+            </div>
+            <div>
+                <span style="color: var(--gold); font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">✦ Bespoke UI</span>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">Tailored premium dark aesthetics.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container" style="max-width: 1100px; margin: 60px auto; padding: 0 20px;">
+        <h2 class="section-title tech-mono" style="text-align: center; font-size: 1.3rem; letter-spacing: 4px; color: var(--gold); margin-bottom: 50px;">CURRENT PRODUCTION RUN</h2>
+        
+        <div class="app-row">
+            <div class="app-col-left">
+                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Closed Beta Track</div>
+                <h3 style="font-size: 1.8rem; color: #ffffff; margin: 0 0 5px 0; font-weight: 600; letter-spacing: -0.5px;">Elite Vault: Hide Pro</h3>
+                <div class="tech-mono" style="color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-bottom: 15px; letter-spacing: 0.5px;">Requires Android 10+ // ARM64</div>
+                
+                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0 0 30px 0;">
+                    Secure your digital life with a comprehensive security suite disguised as a fully functional scientific calculator. Engineered with military-grade AES-256 GCM local encryption, Elite Vault isolates your personal photos, videos, notes, and documents with zero-knowledge architecture—your data never leaves your device.
+                </p>
+
+                <div class="tech-mono" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px;">
+                    <span style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); color: var(--gold); font-size: 0.7rem; padding: 5px 12px; border-radius: 4px; font-weight: 500;">AES-256 GCM</span>
+                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Intruder Selfie Log</span>
+                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">GPS Breach Mapping</span>
+                    <span style="background: rgba(255,255,255,0.02); border:
