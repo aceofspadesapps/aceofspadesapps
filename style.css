@@ -138,10 +138,15 @@ nav a:hover, nav a.active {
     text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
-/* Clean, Safe Flexbox Split Screen Boxes */
+/* THE CORE FIX: CSS Grid Template Areas Layout Map.
+   This locks the presentation elements into explicit panels for desktop.
+*/
 .studio-product-card {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "info media"
+        "action media";
     background-color: #0c0c0c !important;
     border: 1px solid rgba(255,255,255,0.04) !important;
     border-radius: 12px !important;
@@ -151,26 +156,39 @@ nav a:hover, nav a.active {
     width: 100%;
 }
 
-.product-details-pane {
-    flex: 1 1 500px;
-    padding: 45px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #0c0c0c;
+/* Explicitly binds the layout blocks to the CSS area map keys */
+.app-info-block {
+    grid-area: info;
+    padding: 45px 45px 20px 45px;
 }
 
 .product-media-pane {
-    flex: 1 1 500px;
+    grid-area: media;
     background: linear-gradient(135deg, #0f0f0f 0%, #050505 100%);
     padding: 35px;
     display: flex;
     align-items: center;
     overflow: hidden;
     min-height: 480px;
+    border-left: 1px solid rgba(255,255,255,0.04);
 }
 
-/* Luxury Coming Soon Box Placeholder */
+.app-action-pane {
+    grid-area: action;
+    padding: 0 45px 45px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Separate override layout blueprint map for Coming Soon placeholders */
+.coming-soon-card-style {
+    grid-template-areas: 
+        "info media"
+        "action media" !important;
+}
+
+/* Luxury Coming Soon Box Configuration */
 .coming-soon-placeholder {
     background: radial-gradient(circle at center, #0f0f0f 0%, #050505 100%);
     border: 1px dashed rgba(212,175,55,0.15);
@@ -186,14 +204,7 @@ nav a:hover, nav a.active {
     box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
 }
 
-/* App Showcase Grid */
-.app-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-/* Premium Gold Buttons - Hardcoded Core Restoration */
+/* Premium Gold Buttons Configuration */
 .btn {
     display: inline-block !important;
     background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-glow)) !important;
@@ -214,6 +225,13 @@ nav a:hover, nav a.active {
     background-position: right center !important;
     box-shadow: 0 0 25px rgba(243, 229, 171, 0.8) !important;
     transform: scale(1.05) !important;
+}
+
+/* App Showcase Backup Matrix Grid */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 /* Form Styles for Support */
@@ -284,9 +302,10 @@ footer {
     font-size: 0.85rem;
 }
 
-/* ==========================================
-   RESPONSIVE MOBILE STYLING (SAFE WRAPPING)
-   ========================================== */
+/* =========================================================
+   RESPONSIVE MOBILE BREAKPOINT RULES
+   Rewrites the Grid Map to flow in a beautiful layout stack.
+   ========================================================= */
 @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
@@ -322,20 +341,32 @@ footer {
         letter-spacing: 1px;
     }
 
-    /* Stacks the blocks safely on mobile */
+    /* MOBILE RE-MAPPING MATRIX ENGINE:
+       Tells the browser to rearrange the structure completely for phones:
+       1st: Text description info.
+       2nd: The sliding screenshot images container.
+       3rd: The bright gold access buttons at the base anchor level.
+    */
     .studio-product-card {
-        flex-direction: column !important; 
+        grid-template-columns: 1fr !important;
+        grid-template-areas: 
+            "info"
+            "media"
+            "action" !important;
     }
 
-    .product-details-pane {
-        padding: 30px 20px;
-        border-right: none !important;
-        border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+    .app-info-block {
+        padding: 30px 20px 10px 20px;
     }
 
     .product-media-pane { 
-        padding: 25px 15px;
+        padding: 20px 0;
         min-height: unset !important;
+        border-left: none !important;
+    }
+
+    .app-action-pane {
+        padding: 15px 20px 30px 20px;
     }
 
     .container {
