@@ -1,7 +1,7 @@
 /* Import a luxury serif font for headers */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght=600;700;900&display=swap');
 
-/* Modern scroll polish - ensures smooth sliding and proper section alignment */
+/* Modern scroll polish */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
@@ -9,8 +9,8 @@ html {
 
 /* Custom variables for the Ace of Spades aesthetic */
 :root {
-    --bg-dark: #0a0a0a;
-    --card-bg: #111111;
+    --bg-dark: #050505;
+    --card-bg: #0c0c0c;
     --gold: #d4af37;        /* Premium Metallic Gold */
     --gold-glow: #f3e5ab;   /* Light Champagne for highlights */
     --gold-dark: #aa7c11;   /* Deep Gold for borders/gradients */
@@ -35,7 +35,7 @@ body {
 
 /* Header & Navigation */
 header {
-    background-color: rgba(10, 10, 10, 0.95);
+    background-color: rgba(5, 5, 5, 0.95);
     border-bottom: 1px solid var(--gold-mute);
     position: sticky;
     top: 0;
@@ -119,7 +119,7 @@ nav a:hover, nav a.active {
     text-shadow: 0 1px 5px rgba(0,0,0,0.9);
 }
 
-/* Main Container Layout */
+/* Container Layout */
 .container {
     max-width: 1100px;
     margin: 40px auto;
@@ -138,80 +138,70 @@ nav a:hover, nav a.active {
     text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
-/* THE CORE FIX: CSS Grid Template Areas Layout Map.
-   This locks the presentation elements into explicit panels for desktop.
-*/
+/* PREMIUM DESKTOP GRID MAP: Keeps the desktop perfectly symmetrical and clean */
 .studio-product-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-        "info media"
-        "action media";
-    background-color: #0c0c0c !important;
-    border: 1px solid rgba(255,255,255,0.04) !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
-    margin-bottom: 40px;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    margin-bottom: 60px;
     width: 100%;
 }
 
-/* Explicitly binds the layout blocks to the CSS area map keys */
-.app-info-block {
-    grid-area: info;
-    padding: 45px 45px 20px 45px;
-}
-
-.product-media-pane {
-    grid-area: media;
-    background: linear-gradient(135deg, #0f0f0f 0%, #050505 100%);
-    padding: 35px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    min-height: 480px;
-    border-left: 1px solid rgba(255,255,255,0.04);
-}
-
-.app-action-pane {
-    grid-area: action;
-    padding: 0 45px 45px 45px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-/* Separate override layout blueprint map for Coming Soon placeholders */
-.coming-soon-card-style {
-    grid-template-areas: 
-        "info media"
-        "action media" !important;
-}
-
-/* Luxury Coming Soon Box Configuration */
-.coming-soon-placeholder {
-    background: radial-gradient(circle at center, #0f0f0f 0%, #050505 100%);
-    border: 1px dashed rgba(212,175,55,0.15);
-    border-radius: 12px;
-    padding: 35px;
+.product-details-pane {
+    padding: 45px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    min-height: 410px;
-    box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
 }
 
-/* Premium Gold Buttons Configuration */
+.product-media-pane {
+    background: radial-gradient(circle at center, #111111 0%, #080808 100%);
+    padding: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Desktop Gallery Layout: Shows images side by side smoothly */
+.responsive-gallery-stack {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.gallery-img-wrapper {
+    flex: 0 0 280px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.gallery-img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Interactive Action Buttons styling */
+.product-action-block {
+    margin-top: 10px;
+}
+
 .btn {
     display: inline-block !important;
     background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-glow)) !important;
     background-size: 200% auto !important;
     color: #000000 !important;
-    padding: 12px 32px !important;
-    border-radius: 5px !important;
+    padding: 12px 36px !important;
+    border-radius: 6px !important;
     text-decoration: none !important;
     font-weight: 700 !important;
     font-size: 0.9rem !important;
@@ -223,15 +213,31 @@ nav a:hover, nav a.active {
 
 .btn:hover {
     background-position: right center !important;
-    box-shadow: 0 0 25px rgba(243, 229, 171, 0.8) !important;
-    transform: scale(1.05) !important;
+    box-shadow: 0 0 25px rgba(243, 229, 171, 0.7) !important;
+    transform: scale(1.03) !important;
 }
 
-/* App Showcase Backup Matrix Grid */
-.app-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.text-checksum-block {
+    font-size: 0.65rem;
+    color: #444;
+    letter-spacing: 0.5px;
+    word-break: break-all;
+}
+
+/* Luxury Coming Soon Placeholder box */
+.coming-soon-placeholder {
+    background: radial-gradient(circle at center, #111111 0%, #050505 100%);
+    border: 1px dashed rgba(212,175,55,0.15);
+    border-radius: 12px;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    min-height: 380px;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
 }
 
 /* Form Styles for Support */
@@ -263,13 +269,6 @@ nav a:hover, nav a.active {
     padding: 12px;
     border-radius: 5px;
     font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
-    outline: none;
 }
 
 /* Legal text block for Privacy Policy */
@@ -302,88 +301,87 @@ footer {
     font-size: 0.85rem;
 }
 
-/* =========================================================
-   RESPONSIVE MOBILE BREAKPOINT RULES
-   Rewrites the Grid Map to flow in a beautiful layout stack.
-   ========================================================= */
+/* =========================================================================
+   THE TOTAL MOBILE OVERHAUL:
+   Transforms the squashed design into an ultra-premium vertical showcase app line.
+   ========================================================================= */
 @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
         gap: 15px;
         text-align: center;
-        padding: 15px 2%;
+        padding: 15px 5px;
     }
 
-    .brand-name {
-        font-size: 1.1rem;
-    }
-
-    nav {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    .brand-name { font-size: 1.1rem; }
+    nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
 
     .hero {
         height: auto;          
         min-height: unset;     
-        padding: 60px 20px;   
+        padding: 50px 20px;   
     }
+    .hero h1 { font-size: 1.8rem; line-height: 1.3; }
 
-    .hero h1 {
-        font-size: 1.8rem;    
-        line-height: 1.3;
-        margin-bottom: 15px;
-    }
-
-    .hero p {
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-    }
-
-    /* MOBILE RE-MAPPING MATRIX ENGINE:
-       Tells the browser to rearrange the structure completely for phones:
-       1st: Text description info.
-       2nd: The sliding screenshot images container.
-       3rd: The bright gold access buttons at the base anchor level.
-    */
+    /* Converts the rigid desktop grid card into a sleek open block on phones */
     .studio-product-card {
         grid-template-columns: 1fr !important;
-        grid-template-areas: 
-            "info"
-            "media"
-            "action" !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        margin-bottom: 50px;
     }
 
-    .app-info-block {
-        padding: 30px 20px 10px 20px;
-    }
-
-    .product-media-pane { 
+    .product-details-pane {
         padding: 20px 0;
-        min-height: unset !important;
+        text-align: left;
+    }
+
+    .product-media-pane {
+        background: transparent !important;
+        padding: 20px 0 !important;
         border-left: none !important;
     }
 
-    .app-action-pane {
-        padding: 15px 20px 30px 20px;
+    /* THE BIG FIX: Images now stack vertically down the phone screen perfectly sized */
+    .responsive-gallery-stack {
+        flex-direction: column !important;
+        gap: 25px !important;
+        overflow-x: visible !important;
     }
 
-    .container {
-        margin: 20px auto;
+    .gallery-img-wrapper {
+        flex: unset !important;
+        width: 100% !important;
+        max-width: 420px !important;
+        margin: 0 auto !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.7) !important;
+        border: 1px solid rgba(212,175,55,0.1) !important;
     }
 
-    .section-title {
-        font-size: 1.6rem;
-        margin-bottom: 25px;
+    /* Ensures action button block anchors beautifully at full mobile width */
+    .product-action-block {
+        margin-top: 30px;
+        text-align: center;
+        width: 100%;
     }
 
-    .app-grid {
-        grid-template-columns: 1fr; 
-        gap: 20px;
+    .btn {
+        display: block !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        padding: 14px 20px !important;
+        font-size: 1rem !important;
     }
 
-    .legal-box {
-        padding: 20px; 
+    .coming-soon-placeholder {
+        padding: 30px 20px;
+        min-height: unset;
     }
+
+    .container { margin: 10px auto; }
+    .section-title { font-size: 1.5rem; }
+    .app-grid { grid-template-columns: 1fr; gap: 20px; }
+    .legal-box { padding: 20px; }
 }
