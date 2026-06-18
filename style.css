@@ -1,385 +1,363 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ace of Spades Apps - Showcase</title>
-    <!-- Import Premium Tech Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Global Typography Overrides */
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #050505;
-            color: #ffffff;
-            margin: 0;
-            opacity: 0;
-            animation: pageFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+/* Import a luxury serif font for headers */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&display=swap');
 
-        h1, h2, h3, h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+/* Modern scroll polish */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+} contemplation
 
-        .tech-mono {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+/* Custom variables for the Ace of Spades aesthetic */
+:root {
+    --bg-dark: #050505;
+    --card-bg: #0c0c0c;
+    --gold: #d4af37;        /* Premium Metallic Gold */
+    --gold-glow: #f3e5ab;   /* Light Champagne for highlights */
+    --gold-dark: #aa7c11;   /* Deep Gold for borders/gradients */
+    --gold-mute: #8c6d23;   /* Subdued Gold for subtle lines */
+    --text-light: #f5f5f5;  /* Crisp off-white */
+    --text-muted: #bfa873;  /* Muted gold-tinted text */
+    --border: #2c2414;      /* Deep gold-tinted dark border */
+}
 
-        /* Smooth Page Load Animation */
-        @keyframes pageFadeIn {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Feature Matrix Layout */
-        .matrix-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        .matrix-column {
-            background: #0c0c0c;
-            border: 1px solid rgba(255,255,255,0.03);
-            border-radius: 10px;
-            padding: 30px;
-        }
+/* Header & Navigation */
+header {
+    background-color: rgba(5, 5, 5, 0.95);
+    border-bottom: 1px solid var(--gold-mute);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .matrix-title {
-            color: var(--gold, #d4af37);
-            font-size: 0.9rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(212,175,55,0.15);
-            padding-bottom: 10px;
-            font-family: 'Space Grotesk', sans-serif;
-        }
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
-        .matrix-feature { margin-bottom: 20px; }
-        .matrix-feature:last-child { margin-bottom: 0; }
-        .matrix-feature h4 { color: #ffffff; font-size: 0.95rem; margin: 0 0 5px 0; font-weight: 600; }
-        .matrix-feature p { color: var(--text-muted, #888); font-size: 0.85rem; line-height: 1.5; margin: 0; }
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    border: 1px solid var(--gold);
+}
 
-        /* Custom Section Divider */
-        .app-divider {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to right, rgba(0,0,0,0), rgba(212,175,55,0.2) 50%, rgba(0,0,0,0));
-            margin: 80px auto;
-            max-width: 900px;
-        }
+.brand-name {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
 
-        /* Pulsing Live Dot Animation */
-        .pulse-dot {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            background-color: #2ecc71;
-            border-radius: 50%;
-            margin-right: 6px;
-            vertical-align: middle;
-            box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
-            animation: pulse 1.6s infinite;
-        }
+nav {
+    display: flex;
+    gap: 20px;
+}
 
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
-        }
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s, text-shadow 0.3s;
+}
 
-        /* Changelog Timeline Styling */
-        .changelog-section {
-            max-width: 800px;
-            margin: 80px auto 20px auto;
-            padding: 0 20px;
-        }
-        .changelog-container {
-            border-left: 2px solid rgba(212,175,55,0.15);
-            padding-left: 25px;
-            margin-top: 30px;
-        }
-        .changelog-item {
-            position: relative;
-            margin-bottom: 30px;
-        }
-        .changelog-item::before {
-            content: '';
-            position: absolute;
-            left: -31px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            background: #050505;
-            border: 2px solid var(--gold, #d4af37);
-            border-radius: 50%;
-        }
-        .changelog-version {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            color: var(--gold, #d4af37);
-            font-size: 0.9rem;
-        }
-        .changelog-date {
-            font-size: 0.75rem;
-            color: #666;
-            margin-left: 10px;
-        }
-        .changelog-text {
-            color: #aaa;
-            font-size: 0.85rem;
-            margin: 5px 0 0 0;
-            line-height: 1.5;
-        }
-    </style>
-</head>
-<body>
+nav a:hover, nav a.active {
+    color: var(--gold);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="Logo" class="logo-img">
-            <span class="brand-name">Ace of Spades Apps</span>
-        </div>
-        <nav>
-            <a href="index.html" class="active">Showcase</a>
-            <a href="support.html">Support</a>
-            <a href="privacy.html">Privacy Policy</a>
-        </nav>
-    </header>
+/* Hero Banner Section */
+.hero {
+    position: relative;
+    height: 45vh;
+    min-height: 400px;
+    background: linear-gradient(rgba(10,10,10,0.5), rgba(21,17,8,0.3), var(--bg-dark)), url('banner.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+}
 
-    <!-- Hero Branding Section -->
-    <section class="hero" style="padding-bottom: 10px;">
-        <h1>Ace of Spades Apps</h1>
-        <p>Premium Experiences, Handcrafted Details</p>
-    </section>
+.hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(212, 175, 55, 0.6);
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
 
-    <!-- Studio Manifesto Intro -->
-    <section style="max-width: 800px; margin: 0 auto 40px auto; text-align: center; padding: 0 20px;">
-        <p style="color: #ffffff; font-size: 1.05rem; line-height: 1.6; font-weight: 300; letter-spacing: 0.5px;">
-            Ace of Spades architecture handles your mobile utilities with complete server isolation. No cloud accounts. No background analytics. Built exclusively for those who demand absolute device sovereignty.
-        </p>
-    </section>
+.hero p {
+    color: var(--gold);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.9);
+}
 
-    <!-- Studio Core Pillars -->
-    <section style="background: #0d0d0d; border-bottom: 1px solid var(--border); padding: 30px 20px; text-align: center;">
-        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
-            <div>
-                <span style="color: var(--gold); font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">✦ Elite Performance</span>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">Lightweight, optimized architecture.</p>
-            </div>
-            <div>
-                <span style="color: var(--gold); font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">✦ Total Privacy</span>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">Zero tracking. Your data stays yours.</p>
-            </div>
-            <div>
-                <span style="color: var(--gold); font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">✦ Bespoke UI</span>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">Tailored premium dark aesthetics.</p>
-            </div>
-        </div>
-    </section>
+/* Container Layout */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
 
-    <!-- Main Showcase Portfolio -->
-    <main class="container" style="max-width: 1100px; margin: 60px auto; padding: 0 20px;">
-        <h2 class="section-title tech-mono" style="text-align: center; font-size: 1.3rem; letter-spacing: 4px; color: var(--gold); margin-bottom: 50px;">CURRENT PRODUCTION RUN</h2>
-        
-        <!-- ==================== APP 1: ELITE VAULT ==================== -->
-        <div class="studio-product-card">
-            
-            <!-- LEFT COLUMN: App Info & Specifications -->
-            <div class="product-details-pane">
-                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Closed Beta Track</div>
-                <h3 style="font-size: 1.8rem; color: #ffffff; margin: 0 0 5px 0; font-weight: 600; letter-spacing: -0.5px;">Elite Vault: Hide Pro</h3>
-                <div class="tech-mono" style="color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-bottom: 15px; letter-spacing: 0.5px;">Requires Android 10+ // ARM64</div>
-                
-                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0 0 30px 0;">
-                    Secure your digital life with a comprehensive security suite disguised as a fully functional scientific calculator. Engineered with military-grade AES-256 GCM local encryption, Elite Vault isolates your personal photos, videos, notes, and documents with zero-knowledge architecture—your data never leaves your device[cite: 1].
-                </p>
+.section-title {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
 
-                <!-- Technical Specification Tags -->
-                <div class="tech-mono" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px;">
-                    <span style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); color: var(--gold); font-size: 0.7rem; padding: 5px 12px; border-radius: 4px; font-weight: 500;">AES-256 GCM</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Intruder Selfie Log</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">GPS Breach Mapping</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Locked-Screen Recording</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Panic Protocol (Nuke PIN)</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Zero-Knowledge Security</span>
-                </div>
+/* STABLE FLEXBOX CARD: Keeps details and images packed side-by-side on desktop */
+.studio-product-card {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--card-bg) !important;
+    border: 1px solid rgba(255,255,255,0.04) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
+    margin-bottom: 40px;
+    width: 100%;
+}
 
-                <!-- Active Device Count Counter -->
-                <div class="tech-mono" style="margin-bottom: 25px; font-size: 0.8rem; color: #ccc; letter-spacing: 0.5px;">
-                    <span class="pulse-dot"></span> 142 / 200 Beta Slots Allocated
-                </div>
+.product-details-pane {
+    flex: 1 1 55%;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-                <!-- Action Button Block -->
-                <div class="product-action-block">
-                    <div>
-                        <a href="https://forms.google.com/your-form-here" target="_blank" class="btn">Request Beta Access</a>
-                    </div>
-                    <!-- Verified Build Integrity Checksum Check -->
-                    <div class="tech-mono text-checksum-block" style="margin-top: 15px; font-size: 0.65rem; color: #555; letter-spacing: 0.5px; word-break: break-all;">
-                        SHA-256: 8f3c1a9d7b4e2f4b7a0c8e9d1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a
-                    </div>
-                </div>
-            </div>
+.product-media-pane {
+    flex: 1 1 45%;
+    background: linear-gradient(135deg, #0f0f0f 0%, #050505 100%);
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    min-height: 480px;
+    border-left: 1px solid rgba(255,255,255,0.04);
+}
 
-            <!-- RIGHT COLUMN: Luxury Sliding Image Gallery Container -->
-            <div class="product-media-pane">
-                <div class="preview-slider-container">
-                    <div class="slider-item item-wide"><img src="vault-photos/Store_2_Entrance.png" alt="Secure Access Protocols"></div>
-                    <div class="slider-item item-wide"><img src="vault-photos/ghost folders.png" alt="Ghost Folders"></div>
-                    <div class="slider-item item-wide"><img src="vault-photos/Store_3_Vault_Master.png" alt="The Elite Golden Vault"></div>
-                    <div class="slider-item item-tall"><img src="vault-photos/Store_4_Intruder_Caught.jpg" alt="Intruder Evidence Logged"></div>
-                    <div class="slider-item item-wide"><img src="vault-photos/Store_5_Stealth_Toggles.jpg" alt="Total Stealth Control"></div>
-                </div>
-            </div>
+/* Horizontal photo slider container spacing */
+.preview-slider-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 5px;
+    width: 100%;
+}
 
-        </div>
+.slider-item {
+    flex: 0 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+}
 
-        <!-- Premium Security Matrix -->
-        <div class="matrix-grid">
-            <div class="matrix-column">
-                <div class="matrix-title">Operational Discretion</div>
-                <div class="matrix-feature">
-                    <h4>Stealth Background Suite</h4>
-                    <p>Record high-resolution video and audio in discreet background mode, even when your device screen is completely locked[cite: 1].</p>
-                </div>
-                <div class="matrix-feature">
-                    <h4>Perfect Disguise Layout</h4>
-                    <p>A fully functional scientific calculator interface that automatically matches your system theme[cite: 1]. Access requires your secret PIN followed by the "=" key[cite: 1].</p>
-                </div>
-            </div>
+.item-wide { width: 320px; height: auto; }
+.item-tall { width: 170px; height: auto; }
+.slider-item img { width: 100%; height: auto; display: block; }
 
-            <div class="matrix-column">
-                <div class="matrix-title">Counter-Intelligence</div>
-                <div class="matrix-feature">
-                    <h4>Intruder GPS Mapping</h4>
-                    <p>Triggers after 3 incorrect PIN attempts[cite: 1]. The system silently captures a front-facing selfie, logs video evidence, and tracks the exact coordinates of the breach[cite: 1].</p>
-                </div>
-                <div class="matrix-feature">
-                    <h4>Panic Protocol (Nuke PIN)</h4>
-                    <p>An emergency secondary passcode[cite: 1]. Entering this code instantly executes a localized data-wipe protocol to completely sanitize the local vault container[cite: 1].</p>
-                </div>
-            </div>
+/* Interactive Action Buttons styling */
+.product-action-block {
+    margin-top: 10px;
+}
 
-            <div class="matrix-column">
-                <div class="matrix-title">System Ecosystem</div>
-                <div class="matrix-feature">
-                    <h4>Encrypted Camera & Browser</h4>
-                    <p>Surf completely trace-free with zero history footprint, and snap secure high-definition assets directly into your media storage vaults[cite: 1].</p>
-                </div>
-                <div class="matrix-feature">
-                    <h4>Smart Ghost Folders</h4>
-                    <p>Organize internal documents and media with premium custom themes and action-specific lock icons[cite: 1]. Includes a streamlined offline backup recovery layout[cite: 1].</p>
-                </div>
-            </div>
-        </div>
+.btn {
+    display: inline-block !important;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-glow)) !important;
+    background-size: 200% auto !important;
+    color: #000000 !important;
+    padding: 12px 32px !important;
+    border-radius: 5px !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 1px !important;
+    transition: transform 0.2s, box-shadow 0.2s, background-position 0.2s !important;
+    border: none !important;
+    cursor: pointer !important;
+}
 
+.btn:hover {
+    background-position: right center !important;
+    box-shadow: 0 0 25px rgba(243, 229, 171, 0.8) !important;
+    transform: scale(1.05) !important;
+}
 
-        <!-- ==================== VISUAL DIVIDER ==================== -->
-        <hr class="app-divider">
+.text-checksum-block {
+    font-size: 0.65rem;
+    color: #555;
+    letter-spacing: 0.5px;
+    word-break: break-all;
+}
 
+/* Luxury Coming Soon Placeholder box */
+.coming-soon-placeholder {
+    background: radial-gradient(circle at center, #0f0f0f 0%, #050505 100%);
+    border: 1px dashed rgba(212,175,55,0.15);
+    border-radius: 12px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    min-height: 410px;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+}
 
-        <!-- ==================== APP 2: CALORIE KING (COMING SOON) ==================== -->
-        <div class="studio-product-card">
-            
-            <!-- LEFT COLUMN: App Info & Specifications -->
-            <div class="product-details-pane">
-                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • In Development</div>
-                <h3 style="font-size: 1.8rem; color: #ffffff; margin: 0 0 5px 0; font-weight: 600; letter-spacing: -0.5px;">Calorie King: Macro Tracker</h3>
-                <div class="tech-mono" style="color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-bottom: 15px; letter-spacing: 0.5px;">Requires Android 11+ // ARM64</div>
-                
-                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0 0 30px 0;">
-                    Take absolute control over your nutrition with a high-performance, ad-free fitness architecture. Engineered for elite professionals, Calorie King combines localized data security with lightning-fast macro-logging mechanics, keeping your dietary assets organized without deep corporate tracking loops.
-                </p>
+/* App Showcase Matrix Grid Layout */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
 
-                <!-- Technical Specification Tags -->
-                <div class="tech-mono" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px;">
-                    <span style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); color: var(--gold); font-size: 0.7rem; padding: 5px 12px; border-radius: 4px; font-weight: 500;">Instant Logging</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Custom Macro Engine</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Zero Ad Trackers</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Bespoke Dark Architecture</span>
-                </div>
+/* Form Styles for Support */
+.support-form {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-                <div class="product-action-block">
-                    <button class="btn" style="opacity: 0.5; cursor: not-allowed;" disabled>Deployment Pending</button>
-                </div>
-            </div>
+.form-group {
+    margin-bottom: 20px;
+}
 
-            <!-- RIGHT COLUMN: Luxury Coming Soon Box -->
-            <div class="product-media-pane">
-                <div class="coming-soon-placeholder">
-                    <div style="font-size: 2.2rem; color: rgba(212,175,55,0.2); margin-bottom: 15px; font-family: serif;">♠</div>
-                    <div style="color: #ffffff; font-size: 0.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px;">CALORIE KING</div>
-                    <div class="tech-mono" style="color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.15); padding: 4px 12px; border-radius: 4px;">
-                        PRODUCTION RUN PENDING // COMING SOON
-                    </div>
-                    <div style="color: rgba(255,255,255,0.25); font-size: 0.8rem; max-width: 280px; margin-top: 15px; line-height: 1.4;">
-                        Interface elements and digital image assets are currently undergoing studio rendering.
-                    </div>
-                </div>
-            </div>
+.form-group label {
+    display: block;
+    color: var(--gold);
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
 
-        </div>
+.form-group input, .form-group textarea {
+    width: 100%;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
 
+/* Legal text block for Privacy Policy */
+.legal-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 8px;
+}
 
-        <!-- ==================== STUDIO CHANGELOG & ROADMAP TIMELINE ==================== -->
-        <section class="changelog-section">
-            <h3 class="tech-mono" style="color: var(--gold); font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-bottom: 10px;">STUDIO PIPELINE HISTORY</h3>
-            <div class="changelog-container">
-                <div class="changelog-item">
-                    <span class="changelog-version">v1.4.2 Deployment Run</span>
-                    <span class="changelog-date">June 2026</span>
-                    <p class="changelog-text">Optimized the background media recording core pipelines specifically for Android 14 API stability limitations. Re-aligned structural responsive viewport metrics across multi-column device layouts.</p>
-                </div>
-                <div class="changelog-item">
-                    <span class="changelog-version">v1.4.0 Engine Upgrade</span>
-                    <span class="changelog-date">May 2026</span>
-                    <p class="changelog-text">Migrated internal repository asset allocation targets over to an automated local encryption algorithm payload layer utilizing localized military-grade AES-256 GCM architectures.</p>
-                </div>
-            </div>
-        </section>
+.legal-box h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    margin: 25px 0 10px;
+    font-size: 1.4rem;
+}
 
-    </main>
+.legal-box p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
 
-    <!-- Global Privacy Manifesto Section -->
-    <section style="max-width: 1100px; margin: 60px auto 40px auto; padding: 0 20px; text-align: center;">
-        <div style="background: #0a0a0a; border: 1px solid rgba(212,175,55,0.1); border-radius: 8px; padding: 40px; max-width: 750px; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
-            <h3 class="tech-mono" style="color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-weight: 700;">The Ace of Spades Privacy Guarantee</h3>
-            <p style="color: #ffffff; font-size: 0.9rem; line-height: 1.6; margin: 0; font-weight: 300;">
-                We build strictly under zero-knowledge security protocols. Ace of Spades Apps never harvests telemetry, intercepts user databases, or syncs your personal keys to cloud systems—your data belongs to you, isolated entirely on-device.
-            </p>
-        </div>
-    </section>
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
 
-    <!-- Footer with Handcrafted Custom Playing Card -->
-    <footer>
-        <!-- System Network Status Indicator -->
-        <div class="tech-mono" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 1px;">
-            <span class="pulse-dot"></span> STUDIO CORE: OPERATIONAL // PIPELINE: ACTIVE (JUNE 2026)
-        </div>
+/* =========================================================================
+   THE FINAL RESPONSIVE MOBILE FIX:
+   Keeps the text panels completely intact, removes height boundaries, 
+   and stops the phone screenshots from scaling into compressed vertical strips.
+   ========================================================================= */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px 2%;
+    }
 
-        <p>&copy; 2026 Ace of Spades Apps. Inspired by <span style="color: var(--gold); display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;">
-            Brenda the Gin Rummy Queen 
-            <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff; border-radius: 4px; box-shadow: 0 2px 6px rgba(255, 255, 255, 0.15), 0 0 10px rgba(212, 175, 55, 0.3);">
-                <rect width="28" height="42" fill="#ffffff" rx="4" />
-                <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
-                <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
-                <text x="14" y="11.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle">♠</text>
-                <text x="14" y="36.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle" transform="rotate(180, 14, 33)">♠</text>
-                <g transform="translate(28, 42) rotate(180)">
-                    <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
-                    <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
-                </g>
-            </svg>
-        </span></p>
-    </footer>
+    .brand-name { font-size: 1.1rem; }
+    nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
 
-</body>
-</html>
+    .hero {
+        height: auto;          
+        min-height: unset;     
+        padding: 60px 20px;   
+    }
+    .hero h1 { font-size: 1.8rem; line-height: 1.3; }
+
+    /* Stacks presentation columns cleanly on mobile views */
+    .studio-product-card {
+        flex-direction: column !important; 
+    }
+
+    /* Restores natural layout breathing room to your description text */
+    .product-details-pane {
+        padding: 30px 20px !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+    }
+
+    /* REMOVES HEIGHT ENVELOPES: Stops images from getting clipped into narrow boxes */
+    .product-media-pane { 
+        padding: 25px 15px !important;
+        min-height: unset !important;
+        max-height: unset !important; /* Wipes out the restrictive hard ceiling */
+        height: auto !important;       /* Lets layout match natural image proportions */
+        background: #080808 !important;
+    }
+
+    /* Ensures preview image items scale comfortably on mobile widths */
+    .item-wide { width: 270px !important; }
+    .item-tall { width: 150px !important; }
+
+    .container { margin: 20px auto; }
+    .section-title { font-size: 1.6rem; }
+    .app-grid { grid-template-columns: 1fr; gap: 20px; }
+    .legal-box { padding: 20px; }
+}
