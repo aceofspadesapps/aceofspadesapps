@@ -13,7 +13,7 @@
         /* Global Typography Overrides */
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #050505;
+            background: #000000;
             color: #ffffff;
             margin: 0;
             opacity: 0;
@@ -35,17 +35,6 @@
         }
 
         /* Custom styling for the clean horizontal image slider */
-        .preview-slider-container {
-            display: flex;
-            gap: 15px;
-            overflow-x: auto;
-            padding: 10px 5px;
-            width: 100%;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(212,175,55,0.3) rgba(0,0,0,0.2);
-        }
-        
         .preview-slider-container::-webkit-scrollbar {
             height: 6px;
         }
@@ -58,8 +47,6 @@
         }
 
         .slider-item {
-            flex: 0 0 auto;
-            scroll-snap-align: start;
             border-radius: 10px;
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.08);
@@ -105,48 +92,23 @@
         .matrix-feature h4 { color: #ffffff; font-size: 0.95rem; margin: 0 0 5px 0; font-weight: 600; }
         .matrix-feature p { color: var(--text-muted, #888); font-size: 0.85rem; line-height: 1.5; margin: 0; }
 
-        /* Custom Section Divider */
-        .app-divider {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to right, rgba(0,0,0,0), rgba(212,175,55,0.2) 50%, rgba(0,0,0,0));
-            margin: 80px auto;
-            max-width: 900px;
-        }
-
-        /* Coming Soon Luxury Placeholder Container */
-        .coming-soon-placeholder {
-            flex: 1 1 500px;
-            background: radial-gradient(circle at center, #0f0f0f 0%, #050505 100%);
-            border: 1px dashed rgba(212,175,55,0.15);
-            border-radius: 12px;
-            padding: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 480px;
-            box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
-        }
-
         /* Pulsing Live Dot Animation */
         .pulse-dot {
             display: inline-block;
             width: 7px;
             height: 7px;
-            background-color: #2ecc71;
+            background-color: #d4af37;
             border-radius: 50%;
             margin-right: 6px;
             vertical-align: middle;
-            box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
             animation: pulse 1.6s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(212, 175, 55, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
 
         /* Changelog Timeline Styling */
@@ -171,7 +133,7 @@
             top: 5px;
             width: 10px;
             height: 10px;
-            background: #050505;
+            background: #000000;
             border: 2px solid var(--gold, #d4af37);
             border-radius: 50%;
         }
@@ -196,34 +158,43 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Header Navigation with Mobile Icon Overrides -->
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="Logo" class="logo-img">
             <span class="brand-name">Ace of Spades Apps</span>
         </div>
         <nav>
-            <a href="index.html" class="active">Showcase</a>
-            <a href="support.html">Support</a>
-            <a href="privacy.html">Privacy Policy</a>
+            <a href="index.html" class="active">
+                <span class="nav-text">Showcase</span>
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            </a>
+            <a href="support.html">
+                <span class="nav-text">Support</span>
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </a>
+            <a href="privacy.html">
+                <span class="nav-text">Privacy Policy</span>
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </a>
         </nav>
     </header>
 
     <!-- Hero Branding Section -->
-    <section class="hero" style="padding-bottom: 10px;">
+    <section class="hero">
         <h1>Ace of Spades Apps</h1>
         <p>Premium Experiences, Handcrafted Details</p>
     </section>
 
     <!-- Studio Manifesto Intro -->
-    <section style="max-width: 800px; margin: 0 auto 40px auto; text-align: center; padding: 0 20px;">
+    <section style="max-width: 800px; margin: 40px auto; text-align: center; padding: 0 20px;">
         <p style="color: #ffffff; font-size: 1.05rem; line-height: 1.6; font-weight: 300; letter-spacing: 0.5px;">
             Ace of Spades architecture handles your mobile utilities with complete server isolation. No cloud accounts. No background analytics. Built exclusively for those who demand absolute device sovereignty.
         </p>
     </section>
 
     <!-- Studio Core Pillars -->
-    <section style="background: #0d0d0d; border-bottom: 1px solid var(--border); padding: 30px 20px; text-align: center;">
+    <section style="background: #080808; border-bottom: 1px solid var(--border); padding: 30px 20px; text-align: center;">
         <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px;">
             <div>
                 <span style="color: var(--gold); font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">✦ Elite Performance</span>
@@ -240,15 +211,16 @@
         </div>
     </section>
 
+    <div class="module-divider"><span class="module-id">[ DEPLOYMENT MODULE: 01 // SECURE ARCHIVING ]</span></div>
+
     <!-- Main Showcase Portfolio -->
-    <main class="container" style="max-width: 1100px; margin: 60px auto; padding: 0 20px;">
-        <h2 class="section-title tech-mono" style="text-align: center; font-size: 1.3rem; letter-spacing: 4px; color: var(--gold); margin-bottom: 50px;">CURRENT PRODUCTION RUN</h2>
+    <main class="container">
         
         <!-- ==================== APP 1: ELITE VAULT ==================== -->
-        <div class="app-section-container" style="display: flex; flex-wrap: wrap; background: #0c0c0c; border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); gap: 0;">
+        <div class="app-section-container">
             
             <!-- LEFT COLUMN: App Info & Specifications -->
-            <div class="app-info-panel" style="flex: 1 1 450px; padding: 45px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.04);">
+            <div class="app-info-panel">
                 <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Closed Beta Track</div>
                 <h3 style="font-size: 1.8rem; color: #ffffff; margin: 0 0 5px 0; font-weight: 600; letter-spacing: -0.5px;">Elite Vault: Hide Pro</h3>
                 <div class="tech-mono" style="color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-bottom: 15px; letter-spacing: 0.5px;">Requires Android 10+ // ARM64</div>
@@ -274,7 +246,7 @@
 
                 <!-- Upgraded Call-To-Action (Direct Email for Beta Access) -->
                 <div class="cta-container">
-                    <a href="mailto:support@aceofspadesapps.com?subject=BETA ACCESS REQUEST: ELITE VAULT" class="btn" style="margin: 0; padding: 12px 32px; font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; display: inline-block; text-align: center; text-decoration: none;">Request Beta Access</a>
+                    <a href="mailto:support@aceofspadesapps.com?subject=BETA ACCESS REQUEST: ELITE VAULT" class="btn">Request Beta Access</a>
                 </div>
 
                 <!-- Verified Build Integrity Checksum Check -->
@@ -284,8 +256,7 @@
             </div>
 
             <!-- RIGHT COLUMN: Premium Horizontal Sliding Showcase -->
-            <div class="showcase-panel" style="flex: 1 1 500px; background: linear-gradient(135deg, #0f0f0f 0%, #050505 100%); padding: 35px; display: flex; align-items: center; overflow: hidden; min-height: 480px;">
-
+            <div class="showcase-panel">
                 <div class="preview-slider-container">
                     <div class="slider-item item-wide"><img src="vault-photos/Store_2_Entrance.png" alt="Secure Access Protocols"></div>
                     <div class="slider-item item-wide"><img src="vault-photos/ghost folders.png" alt="Ghost Folders"></div>
@@ -295,9 +266,7 @@
                     <div class="slider-item item-tall"><img src="vault-photos/Store_6_Folders_Grid.jpg" alt="Folders Grid Layout"></div>
                     <div class="slider-item item-tall"><img src="vault-photos/Store_7_Backup_Ownership.jpg" alt="Backup Settings"></div>
                 </div>
-
             </div>
-
         </div>
 
         <!-- Premium Security Matrix -->
@@ -340,15 +309,14 @@
         </div>
 
 
-        <!-- ==================== VISUAL DIVIDER ==================== -->
-        <hr class="app-divider">
+        <div class="module-divider"><span class="module-id">[ DEPLOYMENT MODULE: 02 // MACRO INTELLIGENCE ]</span></div>
 
 
         <!-- ==================== APP 2: CALORIE KING (COMING SOON) ==================== -->
-        <div class="app-section-container" style="display: flex; flex-wrap: wrap; background: #0c0c0c; border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); gap: 0;">
+        <div class="app-section-container">
 
             <!-- LEFT COLUMN: App Info & Specifications -->
-            <div class="app-info-panel" style="flex: 1 1 450px; padding: 45px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.04);">
+            <div class="app-info-panel">
                 <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • In Development</div>
                 <h3 style="font-size: 1.8rem; color: #ffffff; margin: 0 0 5px 0; font-weight: 600; letter-spacing: -0.5px;">Calorie King: Macro Tracker</h3>
                 <div class="tech-mono" style="color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-bottom: 15px; letter-spacing: 0.5px;">Requires Android 11+ // ARM64</div>
@@ -366,7 +334,7 @@
                 </div>
 
                 <div class="cta-container">
-                    <a href="mailto:support@aceofspadesapps.com?subject=INTEL REQUEST: CALORIE KING ELITE" class="btn" style="margin: 0; padding: 12px 32px; font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; display: inline-block; text-align: center; text-decoration: none;">Request Intel</a>
+                    <a href="mailto:support@aceofspadesapps.com?subject=INTEL REQUEST: CALORIE KING ELITE" class="btn">Request Intel</a>
                 </div>
             </div>
 
