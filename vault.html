@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Vault: Hide Pro - Ace of Spades Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .preview-slider-container {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 5px;
+            width: 100%;
+            scroll-snap-type: x mandatory;
+        }
+        .slider-item {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: #080808;
+        }
+        .item-wide { width: 320px; }
+        .item-tall { width: 170px; }
+        .slider-item img { width: 100%; height: auto; display: block; }
+
+        @media (max-width: 768px) {
+            .item-wide { width: 260px; }
+            .item-tall { width: 140px; }
+            .app-section-container { display: flex; flex-direction: column; }
+            .showcase-panel { order: -1; margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body style="background:#000;">
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <span class="brand-name">Ace of Spades</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="calories.html">Calories King</a>
+            <a href="vault.html" class="active">Elite Vault</a>
+            <a href="support.html">Support</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="app-section-container" style="display: flex; flex-wrap: wrap; background: #0c0c0c; border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+
+            <div class="app-info-panel" style="flex: 1 1 450px; padding: 45px; border-right: 1px solid rgba(255,255,255,0.04);">
+                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Closed Beta Track</div>
+                <h3 style="font-size: 2.2rem; color: #ffffff; margin: 0 0 10px 0; font-family: 'Cinzel', serif;">Elite Vault: Hide Pro</h3>
+
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">
+                    Secure your digital life with a comprehensive security suite disguised as a fully functional scientific calculator. Engineered with military-grade AES-256 GCM local encryption, Elite Vault isolates your personal photos, videos, and documents with zero-knowledge architecture.
+                </p>
+
+                <div class="tech-mono" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px;">
+                    <span style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); color: var(--gold); font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">AES-256 GCM</span>
+                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Intruder Selfie</span>
+                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">GPS Breach Mapping</span>
+                </div>
+
+                <a href="mailto:support@aceofspadesapps.com?subject=BETA ACCESS REQUEST: ELITE VAULT" class="btn">Request Beta Access</a>
+            </div>
+
+            <div class="showcase-panel" style="flex: 1 1 500px; background: #050505; padding: 35px; display: flex; align-items: center; overflow: hidden;">
+                <div class="preview-slider-container">
+                    <div class="slider-item item-wide"><img src="vault-photos/Store_2_Entrance.png" alt="Entrance"></div>
+                    <div class="slider-item item-wide"><img src="vault-photos/ghost folders.png" alt="Folders"></div>
+                    <div class="slider-item item-wide"><img src="vault-photos/Store_3_Vault_Master.png" alt="Vault"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; color: #444; font-size: 0.8rem;">
+        &copy; 2026 Ace of Spades Apps. Private. Local. Elite.
+    </footer>
+</body>
+</html>
