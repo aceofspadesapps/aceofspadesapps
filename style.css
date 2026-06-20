@@ -3,15 +3,15 @@
 
 /* Custom variables for the Ace of Spades aesthetic */
 :root {
-    --bg-dark: #0a0a0a;
-    --card-bg: #111111;
+    --bg-dark: #000000;     /* True OLED Black */
+    --card-bg: #0c0c0c;     /* Deep Grey for Depth */
     --gold: #d4af37;        /* Premium Metallic Gold */
     --gold-glow: #f3e5ab;   /* Light Champagne for highlights */
     --gold-dark: #aa7c11;   /* Deep Gold for borders/gradients */
-    --gold-mute: #8c6d23;   /* Subdued Gold for subtle lines */
+    --gold-mute: #33d4af37; /* Subdued Gold for subtle lines */
     --text-light: #f5f5f5;  /* Crisp off-white */
-    --text-muted: #bfa873;  /* Muted gold-tinted text */
-    --border: #2c2414;      /* Deep gold-tinted dark border */
+    --text-muted: #888888;  /* Muted Grey */
+    --border: #1a1a1a;      /* Dark Tactical Border */
 }
 
 * {
@@ -29,7 +29,7 @@ body {
 
 /* Header & Navigation */
 header {
-    background-color: rgba(10, 10, 10, 0.95);
+    background-color: rgba(0, 0, 0, 0.95);
     border-bottom: 1px solid var(--gold-mute);
     position: sticky;
     top: 0;
@@ -47,7 +47,7 @@ header {
 }
 
 .logo-img {
-    height: 40px;
+    height: 36px;
     width: auto;
     object-fit: contain;
     border-radius: 4px;
@@ -57,7 +57,7 @@ header {
 .brand-name {
     font-family: 'Cinzel', serif;
     color: var(--gold);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
@@ -73,6 +73,9 @@ nav a {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s, text-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 nav a:hover, nav a.active {
@@ -80,23 +83,25 @@ nav a:hover, nav a.active {
     text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
 }
 
+.nav-text { display: inline; }
+.nav-icon { display: none; }
+
 /* Hero Banner Section */
 .hero {
     position: relative;
-    height: 40vh;
-    background: linear-gradient(rgba(10,10,10,0.5), rgba(21,17,8,0.3), var(--bg-dark)), url('banner.jpg') no-repeat center center/cover;
+    padding: 100px 20px;
+    background: radial-gradient(circle at center, #0f0f0f 0%, #000000 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
     border-bottom: 1px solid var(--border);
 }
 
 .hero h1 {
     font-family: 'Cinzel', serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
     color: #fff;
     text-shadow: 0 2px 20px rgba(212, 175, 55, 0.6);
@@ -106,10 +111,29 @@ nav a:hover, nav a.active {
 
 .hero p {
     color: var(--gold);
-    font-size: 1.1rem;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Tactical Module Divider */
+.module-divider {
+    width: 100%;
+    background: #080808;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px;
+    margin: 60px 0;
+    text-align: center;
+}
+
+.module-id {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.9);
 }
 
 /* Main Container Layout */
@@ -128,151 +152,99 @@ nav a:hover, nav a.active {
     margin-bottom: 35px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
-/* App Showcase Grid */
-.app-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 25px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-}
-
-.app-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--gold);
-    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.2);
-}
-
-.app-card:hover .btn {
-    transform: scale(1.03);
-    background-position: right center;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-}
-
-.app-icon-placeholder {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #16130c, #261f10);
-    border: 1px solid var(--gold);
-    border-radius: 14px;
-    margin: 0 auto 20px;
+/* App Containers */
+.app-section-container {
     display: flex;
+    flex-wrap: wrap;
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.app-info-panel {
+    flex: 1 1 450px;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    border-right: 1px solid rgba(255,255,255,0.04);
+}
+
+.showcase-panel {
+    flex: 1 1 500px;
+    background: #050505;
+    padding: 35px;
+    display: flex;
     align-items: center;
-    font-size: 1.8rem;
-    color: var(--gold);
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-}
-
-.app-card h3 {
-    font-family: 'Cinzel', serif;
-    margin-bottom: 12px;
-    color: #fff;
-    letter-spacing: 1px;
-}
-
-.app-card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 25px;
+    overflow: hidden;
+    min-height: 480px;
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
     background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-glow));
-    background-size: 200% auto;
     color: #000;
-    padding: 10px 22px;
-    border-radius: 5px;
+    padding: 12px 30px;
+    border-radius: 4px;
     text-decoration: none;
     font-weight: 700;
-    transition: transform 0.2s, box-shadow 0.2s, background-position 0.2s;
-}
-
-/* Form Styles for Support */
-.support-form {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border);
-    padding: 30px;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    color: var(--gold);
-    margin-bottom: 5px;
     font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.form-group input, .form-group textarea {
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Slider Custom Styles for Snapping */
+.preview-slider-container {
+    scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 5px;
     width: 100%;
-    background-color: var(--bg-dark);
-    border: 1px solid var(--border);
-    color: var(--text-light);
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.form-group input:focus, .form-group textarea:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
-    outline: none;
-}
-
-/* Legal text block for Privacy Policy */
-.legal-box {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border);
-    padding: 40px;
-    border-radius: 8px;
-}
-
-.legal-box h2 {
-    font-family: 'Cinzel', serif;
-    color: var(--gold);
-    margin: 25px 0 10px;
-    font-size: 1.4rem;
-}
-
-.legal-box p {
-    color: var(--text-muted);
-    margin-bottom: 15px;
+.slider-item {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 40px 20px;
-    margin-top: 60px;
+    padding: 60px 20px;
     border-top: 1px solid var(--border);
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 /* MOBILE FIXES - ADDED SURGICALLY */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
+        flex-direction: row; /* Keep logo and nav side-by-side */
+        padding: 12px 15px;
+        justify-content: space-between;
     }
-    nav { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+
+    .nav-text { display: none; }
+    .nav-icon { display: flex; width: 24px; height: 24px; }
+    nav { gap: 18px; }
+
+    .brand-name { font-size: 1rem; letter-spacing: 1px; }
+    .logo-img { height: 30px; }
+
     .hero h1 { font-size: 2.2rem; }
-    .hero { height: auto; padding: 60px 20px; }
+    .hero { padding: 60px 20px; }
 
     /* Reordering App Containers for Mobile */
     .app-section-container {
@@ -282,26 +254,29 @@ footer {
 
     .app-info-panel {
         order: 1 !important;
+        padding: 30px 20px !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
     }
 
     .showcase-panel {
         order: 2 !important;
+        padding: 20px !important;
+        min-height: auto !important;
     }
 
     .tags-container {
         order: 3 !important;
+        padding: 0 20px 20px 20px;
     }
 
     .cta-container {
         order: 4 !important;
+        padding: 0 20px 30px 20px;
     }
 
-    div[style*="display: flex"] {
-        flex-direction: column !important;
-    }
-    div[style*="padding: 45px"] { padding: 25px !important; }
-    div[style*="border-right"] { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .module-divider { margin: 40px 0; padding: 15px; }
 
-    .item-wide { width: 280px !important; }
-    .item-tall { width: 150px !important; }
+    .item-wide { width: 260px !important; }
+    .item-tall { width: 140px !important; }
 }
