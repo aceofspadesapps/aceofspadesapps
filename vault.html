@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite Vault: Hide Pro - Ace of Spades Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background:#000;">
 
     <header>
         <a href="index.html" class="logo-container">
@@ -14,10 +17,6 @@
             <span class="brand-name">Ace of Spades</span>
         </a>
         <nav>
-            <a href="index.html">
-                <span class="nav-text">Home</span>
-                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
-            </a>
             <a href="support.html">
                 <span class="nav-text">Support</span>
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
@@ -40,13 +39,15 @@
                     Secure your digital life with a comprehensive security suite disguised as a fully functional scientific calculator. Engineered with military-grade AES-256 GCM local encryption, Elite Vault isolates your personal photos, videos, and documents with zero-knowledge architecture.
                 </p>
 
-                <div class="tags-container" style="display: flex; gap: 8px; margin-bottom: 25px;">
+                <div class="tags-container tech-mono" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px;">
                     <span style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); color: var(--gold); font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">AES-256 GCM</span>
                     <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Intruder Selfie</span>
                     <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">GPS Breach Mapping</span>
                 </div>
 
-                <a href="mailto:support@aceofspadesapps.com?subject=BETA ACCESS REQUEST: ELITE VAULT" class="btn">Request Beta Access</a>
+                <div class="cta-container">
+                    <a href="mailto:support@aceofspadesapps.com?subject=BETA ACCESS REQUEST: ELITE VAULT" class="btn">Request Beta Access</a>
+                </div>
             </div>
 
             <div class="showcase-panel">
@@ -67,15 +68,22 @@
     <footer>
         <p>&copy; 2026 Ace of Spades Apps. Inspired by <span style="color: var(--gold); display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;">
             Brenda the Gin Rummy Queen
+            <!-- The 100% Pixel-Perfect 2 of Spades Playing Card Tribute -->
             <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff; border-radius: 4px; box-shadow: 0 2px 6px rgba(255, 255, 255, 0.15), 0 0 10px rgba(212, 175, 55, 0.3);">
                 <rect width="28" height="42" fill="#ffffff" rx="4" />
-                <text x="2.5" y="9.5" font-family="sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
-                <text x="2.5" y="16.5" font-family="sans-serif" font-size="7.5" fill="#000000">♠</text>
-                <text x="14" y="11.5" font-family="sans-serif" font-size="11" fill="#000000" text-anchor="middle">♠</text>
-                <text x="14" y="36.5" font-family="sans-serif" font-size="11" fill="#000000" text-anchor="middle" transform="rotate(180, 14, 33)">♠</text>
+
+                <!-- TOP LEFT CORNER INDEX -->
+                <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
+                <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
+
+                <!-- CENTER SPADES -->
+                <text x="14" y="11.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle">♠</text>
+                <text x="14" y="36.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle" transform="rotate(180, 14, 33)">♠</text>
+
+                <!-- BOTTOM RIGHT CORNER INDEX -->
                 <g transform="translate(28, 42) rotate(180)">
-                    <text x="2.5" y="9.5" font-family="sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
-                    <text x="2.5" y="16.5" font-family="sans-serif" font-size="7.5" fill="#000000">♠</text>
+                    <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
+                    <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
                 </g>
             </svg>
         </span></p>
