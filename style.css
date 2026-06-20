@@ -132,12 +132,6 @@ nav a:hover, nav a.active {
 }
 
 /* App Showcase Grid */
-.app-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
 .app-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border);
@@ -279,9 +273,35 @@ footer {
     nav { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
     .hero h1 { font-size: 2.2rem; }
     .hero { height: auto; padding: 60px 20px; }
+
+    /* Reordering App Containers for Mobile */
+    .app-section-container {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .app-info-panel {
+        order: 1 !important;
+    }
+
+    .showcase-panel {
+        order: 2 !important;
+    }
+
+    .tags-container {
+        order: 3 !important;
+    }
+
+    .cta-container {
+        order: 4 !important;
+    }
+
     div[style*="display: flex"] {
         flex-direction: column !important;
     }
     div[style*="padding: 45px"] { padding: 25px !important; }
     div[style*="border-right"] { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.04); }
+
+    .item-wide { width: 280px !important; }
+    .item-tall { width: 150px !important; }
 }
