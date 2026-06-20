@@ -3,12 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ace of Spades Apps - Central Support Framework</title>
+    <title>Ace of Spades Apps - Support</title>
+    <!-- Import Premium Tech Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Global Typography Overrides */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #050505;
+            color: #ffffff;
+            margin: 0;
+            opacity: 0;
+            animation: pageFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .tech-mono {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Smooth Page Load Animation */
+        @keyframes pageFadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Interactive FAQ Accordion Style */
+        .faq-section {
+            max-width: 800px;
+            margin: 40px auto 60px auto;
+            text-align: left;
+        }
+
         .faq-item {
             background: #0c0c0c;
             border: 1px solid rgba(255,255,255,0.03);
@@ -16,6 +48,7 @@
             margin-bottom: 15px;
             overflow: hidden;
         }
+
         .faq-item summary {
             padding: 20px;
             font-weight: 600;
@@ -24,22 +57,52 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            user-select: none;
             font-size: 0.95rem;
         }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
         .faq-item summary::after {
             content: '＋';
-            color: var(--gold);
+            color: var(--gold, #d4af37);
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s ease;
         }
+
         .faq-item[open] summary::after {
             content: '－';
         }
+
         .faq-content {
             padding: 0 20px 20px 20px;
-            color: var(--text-muted);
+            color: var(--text-muted, #888);
             font-size: 0.88rem;
             line-height: 1.6;
             border-top: 1px solid rgba(255,255,255,0.02);
             padding-top: 15px;
+        }
+
+        /* Pulsing Live Dot Animation */
+        .pulse-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background-color: #d4af37;
+            border-radius: 50%;
+            margin-right: 6px;
+            vertical-align: middle;
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            animation: pulse 1.6s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(212, 175, 55, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
     </style>
 </head>
@@ -57,15 +120,16 @@
         </nav>
     </header>
 
-    <main class="container" style="max-width: 850px;">
+    <main class="container" style="max-width: 850px; margin: 60px auto; padding: 0 20px;">
         
         <div style="text-align: center; margin-bottom: 50px;">
-            <span class="tech-mono" style="color: var(--gold); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;">CENTRAL OPERATIONS</span>
-            <h2 class="section-title">Customer Support</h2>
+            <span class="tech-mono" style="color: var(--gold, #d4af37); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Central Operations</span>
+            <h2 class="section-title" style="font-size: 2rem; font-weight: 600; margin: 10px 0 15px 0; letter-spacing: -0.5px;">Customer Support</h2>
         </div>
         
-        <div style="margin-bottom: 60px;">
-            <h3 class="tech-mono" style="font-size: 0.9rem; color: var(--gold); letter-spacing: 1.5px; margin-bottom: 20px;">SYSTEM KNOWLEDGE ADVISORIES</h3>
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h3 class="tech-mono" style="font-size: 0.9rem; color: var(--gold, #d4af37); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px;">SYSTEM KNOWLEDGE ADVISORIES</h3>
             
             <details class="faq-item">
                 <summary>How do I migrate my data to a new device?</summary>
@@ -89,23 +153,42 @@
             </details>
         </div>
 
-        <div style="background: #0c0c0c; border: 1px solid var(--gold-mute); border-radius: 12px; text-align: center; padding: 45px 30px;">
+        <!-- Support Requisition Box -->
+        <div class="support-form" style="background: linear-gradient(135deg, #0d0d0d 0%, #070707 100%); border: 1px solid rgba(212,175,55,0.12); border-radius: 12px; text-align: center; padding: 45px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
             <p style="color: #ffffff; font-size: 1.1rem; margin-bottom: 10px; font-weight: 600;">
-                Direct Support Requisition
+                Have a question or running into an issue with our applications?
             </p>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; line-height: 1.5;">
-                Our engineering team typically reviews tickets and responds within 24 hours.
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+                Click the button below to open your email client and send a message directly to our desk. Our engineering team typically reviews tickets and responds within 24 hours.
             </p>
             
-            <a href="mailto:support@aceofspadesapps.com" class="btn">Open Support Ticket</a>
+            <!-- Direct Email Link Button -->
+            <a href="mailto:support@aceofspadesapps.com?subject=Support Request - Ace of Spades Apps" class="btn" style="display: inline-block; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 12px 32px; letter-spacing: 0.5px;">
+                Open Email Client
+            </a>
         </div>
     </main>
 
    <footer>
+        <!-- System Network Status Indicator -->
         <div class="tech-mono" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 1px;">
-            STUDIO CORE: OPERATIONAL // PIPELINE: ACTIVE
+            <span class="pulse-dot"></span> STUDIO CORE: OPERATIONAL // PIPELINE: ACTIVE (JUNE 2026)
         </div>
-        <p>&copy; 2026 Ace of Spades Apps. Designed for total device sovereignty.</p>
+
+        <p>&copy; 2026 Ace of Spades Apps. Inspired by <span style="color: var(--gold); display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;">
+            Brenda the Gin Rummy Queen
+            <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff; border-radius: 4px; box-shadow: 0 2px 6px rgba(255, 255, 255, 0.15), 0 0 10px rgba(212, 175, 55, 0.3);">
+                <rect width="28" height="42" fill="#ffffff" rx="4" />
+                <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
+                <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
+                <text x="14" y="11.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle">♠</text>
+                <text x="14" y="36.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle" transform="rotate(180, 14, 33)">♠</text>
+                <g transform="translate(28, 42) rotate(180)">
+                    <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
+                    <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
+                </g>
+            </svg>
+        </span></p>
     </footer>
 </body>
 </html>
