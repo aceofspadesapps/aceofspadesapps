@@ -87,6 +87,8 @@ nav a:hover, nav a.active {
     color: var(--gold);
 }
 
+.nav-icon { display: none; width: 22px; height: 22px; stroke: currentColor; }
+
 /* Dropdown Menu */
 .dropdown {
     position: relative;
@@ -118,12 +120,10 @@ nav a:hover, nav a.active {
 .dropdown-content a:hover { background-color: #1a1a1a; color: var(--gold); }
 .dropdown:hover .dropdown-content { display: block; }
 
-.nav-icon { display: none; width: 22px; height: 22px; stroke: currentColor; }
-
 /* Hero Banner Section */
 .hero {
     position: relative;
-    padding: 100px 20px;
+    padding: 80px 20px;
     background: radial-gradient(circle at center, #0f0f0f 0%, #000000 100%);
     display: flex;
     flex-direction: column;
@@ -135,10 +135,9 @@ nav a:hover, nav a.active {
 
 .hero h1 {
     font-family: 'Cinzel', serif;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 900;
     color: #fff;
-    text-shadow: 0 2px 20px rgba(212, 175, 55, 0.6);
     margin-bottom: 12px;
     letter-spacing: 2px;
 }
@@ -150,26 +149,6 @@ nav a:hover, nav a.active {
     text-transform: uppercase;
 }
 
-/* Tactical Module Divider */
-.module-divider {
-    width: 100%;
-    background: #080808;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 12px 20px;
-    margin: 60px 0;
-    text-align: center;
-}
-
-.module-id {
-    font-family: 'Space Grotesk', sans-serif;
-    color: var(--gold);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
 /* Main Container Layout */
 .container {
     max-width: 1100px;
@@ -177,18 +156,7 @@ nav a:hover, nav a.active {
     padding: 0 20px;
 }
 
-.section-title {
-    font-family: 'Cinzel', serif;
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 35px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-/* App Containers */
+/* App Sections */
 .app-section-container {
     display: flex;
     flex-wrap: wrap;
@@ -196,7 +164,7 @@ nav a:hover, nav a.active {
     border: 1px solid rgba(255,255,255,0.04);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    margin-bottom: 40px;
 }
 
 .app-info-panel {
@@ -215,16 +183,39 @@ nav a:hover, nav a.active {
     display: flex;
     align-items: center;
     overflow: hidden;
-    min-height: 480px;
 }
 
-/* Hub Tile Links Fix */
-.hub-info {
-    text-decoration: none !important;
+/* SLIDER LOGIC */
+.preview-slider-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 5px;
+    width: 100%;
+    scroll-snap-type: x mandatory;
 }
 
-.hub-title, .hub-desc, .deploy-btn {
-    text-decoration: none !important;
+.slider-item {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Standard PC Sizes */
+.item-wide { width: 320px; }
+.item-tall { width: 170px; }
+
+.slider-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
 
 /* Buttons */
@@ -239,94 +230,72 @@ nav a:hover, nav a.active {
     font-size: 0.9rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s;
 }
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
 
-/* Slider Custom Styles for Snapping */
-.preview-slider-container {
-    scroll-snap-type: x mandatory;
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding: 10px 5px;
-    width: 100%;
+/* Legal text block for Privacy Policy */
+.legal-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 8px;
 }
 
-.slider-item {
-    scroll-snap-align: center;
-    flex: 0 0 auto;
+.legal-box h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    margin: 25px 0 10px;
+    font-size: 1.4rem;
+}
+
+.legal-box p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
+    margin-top: 60px;
     border-top: 1px solid var(--border);
     color: var(--text-muted);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
-/* MOBILE FIXES */
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
-    header {
-        padding: 12px 15px;
-        justify-content: space-between;
-    }
-
+    header { padding: 12px 15px; justify-content: space-between; }
     .nav-text { display: none; }
     .nav-icon { display: block; }
-    nav { gap: 15px; }
-
-    .dropdown:hover .dropdown-content { display: none; }
-    .dropdown.active-mobile .dropdown-content { display: block; position: fixed; top: 60px; left: 0; width: 100%; }
-
-    .brand-name { font-size: 1rem; letter-spacing: 1px; }
-    .logo-img { height: 30px; }
+    nav { gap: 18px; }
 
     .hero h1 { font-size: 2.2rem; }
-    .hero { padding: 60px 20px; }
 
-    .app-section-container {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-    }
-
-    .app-info-panel {
-        order: 1 !important;
-        padding: 30px 20px !important;
-        border-right: none !important;
-        border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
+    .app-section-container { flex-direction: column; }
+    .app-info-panel { padding: 30px 20px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.04); }
 
     .showcase-panel {
-        order: 2 !important;
-        padding: 10px !important;
-        min-height: auto !important;
+        order: -1;
+        padding: 15px !important;
         background: #000 !important;
     }
 
+    /* THE FULL-FRAME FIX */
     .slider-item {
-        width: 85vw !important;
+        width: 80vw !important; /* Force the box to fit the phone width */
         height: auto !important;
-        max-height: 60vh !important;
+        max-height: 60vh !important; /* Prevent it from being too tall */
     }
 
     .slider-item img {
         width: 100% !important;
         height: auto !important;
-        object-fit: contain !important;
+        max-height: 60vh !important;
+        object-fit: contain !important; /* Force the WHOLE image to show */
     }
-
-    .tags-container { order: 3 !important; padding: 0 20px 20px 20px; }
-    .cta-container { order: 4 !important; padding: 0 20px 30px 20px; }
-
-    .module-divider { margin: 40px 0; padding: 15px; }
-
-    .item-wide { width: 260px !important; }
-    .item-tall { width: 140px !important; }
 }
