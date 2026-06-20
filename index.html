@@ -45,9 +45,18 @@
             padding: 20px;
             background: linear-gradient(to bottom, transparent, #0c0c0c);
             border-top: 1px solid rgba(212, 175, 55, 0.1);
+            text-decoration: none !important;
+            color: inherit !important;
         }
-        .hub-title { color: #fff; font-family: 'Cinzel', serif; font-size: 1.2rem; letter-spacing: 1px; }
-        .hub-desc { color: var(--text-muted); font-size: 0.8rem; margin-top: 5px; }
+
+        /* Tactical Link Reset */
+        .hub-info, .hub-info:hover, .hub-info:visited {
+            text-decoration: none !important;
+            color: #ffffff !important;
+        }
+
+        .hub-title { font-family: 'Cinzel', serif; font-size: 1.2rem; letter-spacing: 1px; color: #fff; margin: 0; }
+        .hub-desc { color: #888 !important; font-size: 0.8rem; margin-top: 5px; text-decoration: none !important; }
 
         .deploy-btn {
             margin-top: 15px;
@@ -107,8 +116,8 @@
                     <img src="vault-photos/Store_6_Folders_Grid.jpg" class="hub-img">
                 </div>
                 <a href="vault.html" class="hub-info">
-                    <div class="hub-title">ELITE VAULT</div>
-                    <div class="hub-desc">Military-grade media encryption suite.</div>
+                    <h3 class="hub-title">ELITE VAULT</h3>
+                    <p class="hub-desc">Military-grade media encryption suite.</p>
                     <div class="deploy-btn">DEPLOY MODULE 01 // ARCHIVE ❯</div>
                 </a>
             </div>
@@ -116,11 +125,12 @@
             <!-- CALORIES TILE -->
             <div class="hub-tile">
                 <div class="hub-gallery">
+                    <!-- Placeholder branding for Calories King -->
                     <div style="flex:0 0 100%; display:flex; align-items:center; justify-content:center; background:#050505; color:var(--gold); font-size:3rem;">♠</div>
                 </div>
                 <a href="calories.html" class="hub-info">
-                    <div class="hub-title">CALORIES KING</div>
-                    <div class="hub-desc">High-performance macro tracking architecture.</div>
+                    <h3 class="hub-title">CALORIES KING</h3>
+                    <p class="hub-desc">High-performance macro tracking architecture.</p>
                     <div class="deploy-btn">DEPLOY MODULE 02 // MACRO ❯</div>
                 </a>
             </div>
