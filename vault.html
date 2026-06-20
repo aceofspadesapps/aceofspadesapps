@@ -8,6 +8,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .matrix-column {
+            background: #0c0c0c;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+        }
+        .matrix-header {
+            color: var(--gold);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--gold-mute);
+            padding-bottom: 10px;
+        }
+        .feature-item { margin-bottom: 15px; }
+        .feature-item h4 { color: #fff; font-size: 0.95rem; margin-bottom: 4px; }
+        .feature-item p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
+
+        @media (max-width: 768px) {
+            .matrix-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body style="background:#000;">
 
@@ -29,6 +61,7 @@
     </header>
 
     <main class="container">
+        <!-- Main App Showcase -->
         <div class="app-section-container">
 
             <div class="app-info-panel">
@@ -38,12 +71,6 @@
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">
                     Secure your digital life with a comprehensive security suite disguised as a fully functional scientific calculator. Engineered with military-grade AES-256 GCM local encryption, Elite Vault isolates your personal photos, videos, and documents with zero-knowledge architecture.
                 </p>
-
-                <div class="tags-container tech-mono" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px;">
-                    <span style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); color: var(--gold); font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">AES-256 GCM</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Intruder Selfie</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">GPS Breach Mapping</span>
-                </div>
 
                 <div class="cta-container">
                     <a href="mailto:support@aceofspadesapps.com?subject=BETA ACCESS REQUEST: ELITE VAULT" class="btn">Request Beta Access</a>
@@ -63,6 +90,74 @@
                 </div>
             </div>
         </div>
+
+        <!-- 12-Point Tactical Matrix -->
+        <div class="matrix-grid">
+            <div class="matrix-column">
+                <div class="matrix-header">Operational Discretion</div>
+                <div class="feature-item">
+                    <h4>Perfect Disguise</h4>
+                    <p>Fully functional scientific calculator. Enter your secret PIN and '=' to reveal the truth.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Stealth Background Suite</h4>
+                    <p>Record high-resolution video and audio while your screen is locked.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Auto-Lockdown</h4>
+                    <p>Instantly locks the session the moment you switch apps or look away.</p>
+                </div>
+            </div>
+
+            <div class="matrix-column">
+                <div class="matrix-header">Surveillance Defense</div>
+                <div class="feature-item">
+                    <h4>Intruder GPS Mapping</h4>
+                    <p>Silent selfie, video, and precise GPS coordinates captured after 3 incorrect attempts.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Panic Protocol (Nuke PIN)</h4>
+                    <p>Secondary code that instantly sanitizes all local vault data in an emergency.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Zero-Knowledge Privacy</h4>
+                    <p>Server-isolated architecture. Your keys and data never leave the handset.</p>
+                </div>
+            </div>
+
+            <div class="matrix-column">
+                <div class="matrix-header">Cryptographic Assets</div>
+                <div class="feature-item">
+                    <h4>Secure Camera & Browser</h4>
+                    <p>Capture assets and surf the web with zero local footprint or history traces.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Elite Media Editor</h4>
+                    <p>Professional privacy tools: blur, blackout stickers, and technical drawing.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Smart Ghost Folders</h4>
+                    <p>Organize with luxury themes and custom deployment icons (Camera, Play, Lock).</p>
+                </div>
+            </div>
+
+            <div class="matrix-column">
+                <div class="matrix-header">Logistics & Recovery</div>
+                <div class="feature-item">
+                    <h4>Encrypted ZIP Backups</h4>
+                    <p>Export your entire vault into one secure, portable cryptographic package.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>One-Tap Migration</h4>
+                    <p>Rapid restoration protocol for moving your data to a new handset.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Biometric Signature</h4>
+                    <p>Enterprise-grade security using native Fingerprint or Face ID authentication.</p>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer>
