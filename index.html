@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ace of Spades Apps - Showcase</title>
+    <title>Ace of Spades Apps - Elite Performance Showcase</title>
     <!-- Import Premium Tech Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
         /* Global Typography Overrides */
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #050505;
+            background: #000000;
             color: #ffffff;
             margin: 0;
             opacity: 0;
@@ -117,7 +117,7 @@
         /* Coming Soon Luxury Placeholder Container */
         .coming-soon-placeholder {
             flex: 1 1 500px;
-            background: radial-gradient(circle at center, #0f0f0f 0%, #050505 100%);
+            background: radial-gradient(circle at center, #0f0f0f 0%, #000000 100%);
             border: 1px dashed rgba(212,175,55,0.15);
             border-radius: 12px;
             padding: 35px;
@@ -135,62 +135,48 @@
             display: inline-block;
             width: 7px;
             height: 7px;
-            background-color: #2ecc71;
+            background-color: #d4af37;
             border-radius: 50%;
             margin-right: 6px;
             vertical-align: middle;
-            box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
             animation: pulse 1.6s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(212, 175, 55, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
 
-        /* Changelog Timeline Styling */
-        .changelog-section {
-            max-width: 800px;
-            margin: 80px auto 20px auto;
-            padding: 0 20px;
+        /* App Layout Helper Classes */
+        .app-container {
+            display: flex;
+            flex-wrap: wrap;
+            background: #0c0c0c;
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
-        .changelog-container {
-            border-left: 2px solid rgba(212,175,55,0.15);
-            padding-left: 25px;
-            margin-top: 30px;
+
+        .app-info-panel {
+            flex: 1 1 450px;
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid rgba(255,255,255,0.04);
         }
-        .changelog-item {
-            position: relative;
-            margin-bottom: 30px;
-        }
-        .changelog-item::before {
-            content: '';
-            position: absolute;
-            left: -31px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            background: #050505;
-            border: 2px solid var(--gold, #d4af37);
-            border-radius: 50%;
-        }
-        .changelog-version {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            color: var(--gold, #d4af37);
-            font-size: 0.9rem;
-        }
-        .changelog-date {
-            font-size: 0.75rem;
-            color: #666;
-            margin-left: 10px;
-        }
-        .changelog-text {
-            color: #aaa;
-            font-size: 0.85rem;
-            margin: 5px 0 0 0;
-            line-height: 1.5;
+
+        .showcase-panel {
+            flex: 1 1 500px;
+            background: linear-gradient(135deg, #0f0f0f 0%, #000000 100%);
+            padding: 35px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            min-height: 480px;
         }
     </style>
 </head>
@@ -210,13 +196,13 @@
     </header>
 
     <!-- Hero Branding Section -->
-    <section class="hero" style="padding-bottom: 10px;">
+    <section class="hero">
         <h1>Ace of Spades Apps</h1>
         <p>Premium Experiences, Handcrafted Details</p>
     </section>
 
     <!-- Studio Manifesto Intro -->
-    <section style="max-width: 800px; margin: 0 auto 40px auto; text-align: center; padding: 0 20px;">
+    <section style="max-width: 800px; margin: 40px auto; text-align: center; padding: 0 20px;">
         <p style="color: #ffffff; font-size: 1.05rem; line-height: 1.6; font-weight: 300; letter-spacing: 0.5px;">
             Ace of Spades architecture handles your mobile utilities with complete server isolation. No cloud accounts. No background analytics. Built exclusively for those who demand absolute device sovereignty.
         </p>
@@ -241,166 +227,115 @@
     </section>
 
     <!-- Main Showcase Portfolio -->
-    <main class="container" style="max-width: 1100px; margin: 60px auto; padding: 0 20px;">
-        <h2 class="section-title tech-mono" style="text-align: center; font-size: 1.3rem; letter-spacing: 4px; color: var(--gold); margin-bottom: 50px;">CURRENT PRODUCTION RUN</h2>
+    <main class="container">
+        <h2 class="section-title tech-mono">CURRENT PRODUCTION RUN</h2>
         
-        <!-- ==================== APP 1: ELITE VAULT ==================== -->
-        <div style="display: flex; flex-wrap: wrap; background: #0c0c0c; border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); gap: 0;">
+        <!-- ==================== APP 1: CALORIE KING ELITE ==================== -->
+        <div class="app-container">
             
             <!-- LEFT COLUMN: App Info & Specifications -->
-            <div style="flex: 1 1 450px; padding: 45px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.04);">
-                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Closed Beta Track</div>
-                <h3 style="font-size: 1.8rem; color: #ffffff; margin: 0 0 5px 0; font-weight: 600; letter-spacing: -0.5px;">Elite Vault: Hide Pro</h3>
+            <div class="app-info-panel">
+                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Production Active</div>
+                <h3 style="font-size: 1.8rem; color: #ffffff; margin: 0 0 5px 0; font-weight: 600; letter-spacing: -0.5px;">Calories King Elite</h3>
                 <div class="tech-mono" style="color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-bottom: 15px; letter-spacing: 0.5px;">Requires Android 10+ // ARM64</div>
                 
                 <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0 0 30px 0;">
-                    Secure your digital life with a comprehensive security suite disguised as a fully functional scientific calculator. Engineered with military-grade AES-256 GCM local encryption, Elite Vault isolates your personal photos, videos, notes, and documents with zero-knowledge architecture—your data never leaves your device[cite: 1].
+                    Take absolute command over your nutrition with high-performance tracking architecture. Calories King Elite combines localized data security with rapid macro-logging mechanics, featuring advanced "Evolution" video generation and professional performance briefings.
                 </p>
 
                 <!-- Technical Specification Tags -->
                 <div class="tech-mono" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px;">
-                    <span style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); color: var(--gold); font-size: 0.7rem; padding: 5px 12px; border-radius: 4px; font-weight: 500;">AES-256 GCM</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Intruder Selfie Log</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">GPS Breach Mapping</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Locked-Screen Recording</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Panic Protocol (Nuke PIN)</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Zero-Knowledge Security</span>
+                    <span style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); color: var(--gold); font-size: 0.7rem; padding: 5px 12px; border-radius: 4px; font-weight: 500;">AI Meal Scan</span>
+                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Evolution Video Gen</span>
+                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Biometric Vault</span>
+                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">PDF Performance Briefing</span>
+                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Zero Cloud Tracking</span>
                 </div>
 
-                <!-- Active Device Count Counter -->
+                <!-- Active Status -->
                 <div class="tech-mono" style="margin-bottom: 25px; font-size: 0.8rem; color: #ccc; letter-spacing: 0.5px;">
-                    <span class="pulse-dot"></span> 142 / 200 Beta Slots Allocated
+                    <span class="pulse-dot"></span> System Status: Operational // Version 2.4
                 </div>
 
-                <!-- Upgraded Call-To-Action (Paste Form Link inside href) -->
                 <div>
-                    <a href="https://forms.google.com/your-form-here" target="_blank" class="btn" style="margin: 0; padding: 12px 32px; font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; display: inline-block; text-align: center; text-decoration: none;">Request Beta Access</a>
-                </div>
-
-                <!-- Verified Build Integrity Checksum Check -->
-                <div class="tech-mono" style="margin-top: 15px; font-size: 0.65rem; color: #555; letter-spacing: 0.5px; word-break: break-all;">
-                    SHA-256: 8f3c1a9d7b4e2f4b7a0c8e9d1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a
+                    <a href="support.html" class="btn">Deploy System</a>
                 </div>
             </div>
 
             <!-- RIGHT COLUMN: Premium Horizontal Sliding Showcase -->
-            <div style="flex: 1 1 500px; background: linear-gradient(135deg, #0f0f0f 0%, #050505 100%); padding: 35px; display: flex; align-items: center; overflow: hidden; min-height: 480px;">
-                
+            <div class="showcase-panel">
                 <div class="preview-slider-container">
-                    <div class="slider-item item-wide"><img src="vault-photos/Store_2_Entrance.png" alt="Secure Access Protocols"></div>
-                    <div class="slider-item item-wide"><img src="vault-photos/ghost folders.png" alt="Ghost Folders"></div>
-                    <div class="slider-item item-wide"><img src="vault-photos/Store_3_Vault_Master.png" alt="The Elite Golden Vault"></div>
-                    <div class="slider-item item-tall"><img src="vault-photos/Store_4_Intruder_Caught.jpg" alt="Intruder Evidence Logged"></div>
-                    <div class="slider-item item-wide"><img src="vault-photos/Store_5_Stealth_Toggles.jpg" alt="Total Stealth Control"></div>
-                    <div class="slider-item item-tall"><img src="vault-photos/Store_6_Folders_Grid.jpg" alt="Folders Grid Layout"></div>
-                    <div class="slider-item item-tall"><img src="vault-photos/Store_7_Backup_Ownership.jpg" alt="Backup Settings"></div>
+                    <!-- Note: Use your actual app screenshots here -->
+                    <div class="slider-item item-tall"><img src="vault-photos/screenshot_1.jpg" alt="Dashboard View" onerror="this.src='https://via.placeholder.com/170x302/080808/d4af37?text=DASHBOARD'"></div>
+                    <div class="slider-item item-tall"><img src="vault-photos/screenshot_2.jpg" alt="Macro Tracking" onerror="this.src='https://via.placeholder.com/170x302/080808/d4af37?text=MACROS'"></div>
+                    <div class="slider-item item-tall"><img src="vault-photos/screenshot_3.jpg" alt="History Feed" onerror="this.src='https://via.placeholder.com/170x302/080808/d4af37?text=HISTORY'"></div>
+                    <div class="slider-item item-tall"><img src="vault-photos/screenshot_4.jpg" alt="Secure Vault" onerror="this.src='https://via.placeholder.com/170x302/080808/d4af37?text=VAULT'"></div>
                 </div>
-
             </div>
 
         </div>
 
-        <!-- Premium Security Matrix -->
+        <!-- Matrix for Calorie King -->
         <div class="matrix-grid">
             <div class="matrix-column">
-                <div class="matrix-title">Operational Discretion</div>
+                <div class="matrix-title">Operational Intel</div>
                 <div class="matrix-feature">
-                    <h4>Stealth Background Suite</h4>
-                    <p>Record high-resolution video and audio in discreet background mode, even when your device screen is completely locked[cite: 1].</p>
+                    <h4>Dynamic Fuel Cells</h4>
+                    <p>Interactive dashboard monitoring real-time calorie load and macro accuracy scores with automated redline warnings.</p>
                 </div>
                 <div class="matrix-feature">
-                    <h4>Perfect Disguise Layout</h4>
-                    <p>A fully functional scientific calculator interface that automatically matches your system theme[cite: 1]. Access requires your secret PIN followed by the "=" key[cite: 1].</p>
-                </div>
-            </div>
-
-            <div class="matrix-column">
-                <div class="matrix-title">Counter-Intelligence</div>
-                <div class="matrix-feature">
-                    <h4>Intruder GPS Mapping</h4>
-                    <p>Triggers after 3 incorrect PIN attempts[cite: 1]. The system silently captures a front-facing selfie, logs video evidence, and tracks the exact coordinates of the breach[cite: 1].</p>
-                </div>
-                <div class="matrix-feature">
-                    <h4>Panic Protocol (Nuke PIN)</h4>
-                    <p>An emergency secondary passcode[cite: 1]. Entering this code instantly executes a localized data-wipe protocol to completely sanitize the local vault container[cite: 1].</p>
+                    <h4>AI Deployment Stacks</h4>
+                    <p>Leverage on-device AI and voice recognition to identify nutritional assets and log meals with surgical precision.</p>
                 </div>
             </div>
 
             <div class="matrix-column">
-                <div class="matrix-title">System Ecosystem</div>
+                <div class="matrix-title">Progress Archiving</div>
                 <div class="matrix-feature">
-                    <h4>Encrypted Camera & Browser</h4>
-                    <p>Surf completely trace-free with zero history footprint, and snap secure high-definition assets directly into your media storage vaults[cite: 1].</p>
+                    <h4>Biometric Vault Access</h4>
+                    <p>Secure your physical transformation media behind enterprise-grade biometric locks (Fingerprint / Face ID).</p>
                 </div>
                 <div class="matrix-feature">
-                    <h4>Smart Ghost Folders</h4>
-                    <p>Organize internal documents and media with premium custom themes and action-specific lock icons[cite: 1]. Includes a streamlined offline backup recovery layout[cite: 1].</p>
+                    <h4>Evolution Video Engine</h4>
+                    <p>Automatically generate high-definition transformation time-lapses with tactical data overlays for social sharing.</p>
+                </div>
+            </div>
+
+            <div class="matrix-column">
+                <div class="matrix-title">Data Sovereignty</div>
+                <div class="matrix-feature">
+                    <h4>Performance Briefings</h4>
+                    <p>Generate professional PDF reports of your tracking metrics, consistency grids, and goal progression.</p>
+                </div>
+                <div class="matrix-feature">
+                    <h4>Zero-Cloud Architecture</h4>
+                    <p>Absolute isolation. Your nutritional logs and biometric data never touch an external server.</p>
                 </div>
             </div>
         </div>
 
-
-        <!-- ==================== VISUAL DIVIDER ==================== -->
         <hr class="app-divider">
 
-
-        <!-- ==================== APP 2: CALORIE KING (COMING SOON) ==================== -->
-        <div style="display: flex; flex-wrap: wrap; background: #0c0c0c; border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); gap: 0;">
-            
-            <!-- LEFT COLUMN: App Info & Specifications -->
-            <div style="flex: 1 1 450px; padding: 45px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.04);">
-                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • In Development</div>
-                <h3 style="font-size: 1.8rem; color: #ffffff; margin: 0 0 5px 0; font-weight: 600; letter-spacing: -0.5px;">Calorie King: Macro Tracker</h3>
-                <div class="tech-mono" style="color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-bottom: 15px; letter-spacing: 0.5px;">Requires Android 11+ // ARM64</div>
-                
-                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0 0 30px 0;">
-                    Take absolute control over your nutrition with a high-performance, ad-free fitness architecture. Engineered for elite professionals, Calorie King combines localized data security with lightning-fast macro-logging mechanics, keeping your dietary assets organized without deep corporate tracking loops.
+        <!-- ==================== APP 2: HIDE PRO (ELITE VAULT) ==================== -->
+        <div class="app-container">
+            <!-- Reuse classes for consistency and mobile overrides -->
+            <div class="app-info-panel">
+                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Legacy Support</div>
+                <h3 style="font-size: 1.8rem; color: #ffffff; margin: 0 0 5px 0; font-weight: 600; letter-spacing: -0.5px;">Elite Vault: Hide Pro</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 20px 0;">
+                    Disguised as a fully functional calculator, Hide Pro secures your media using AES-256 local encryption. Featuring intruder capturing and GPS breach mapping.
                 </p>
-
-                <!-- Technical Specification Tags -->
-                <div class="tech-mono" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px;">
-                    <span style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); color: var(--gold); font-size: 0.7rem; padding: 5px 12px; border-radius: 4px; font-weight: 500;">Instant Logging</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Custom Macro Engine</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Zero Ad Trackers</span>
-                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Bespoke Dark Architecture</span>
-                </div>
-
                 <div>
-                    <button class="btn" style="margin: 0; padding: 12px 32px; font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; opacity: 0.5; cursor: not-allowed;" disabled>Deployment Pending</button>
+                    <a href="https://forms.google.com/your-form-here" class="btn">View Specifications</a>
                 </div>
             </div>
-
-            <!-- RIGHT COLUMN: Luxury Coming Soon Box -->
-            <div class="coming-soon-placeholder">
-                <div style="font-size: 2.2rem; color: rgba(212,175,55,0.2); margin-bottom: 15px; font-family: serif;">♠</div>
-                <div style="color: #ffffff; font-size: 0.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px;">CALORIE KING</div>
-                <div class="tech-mono" style="color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; background: rgba(212,175,55,0.05); border: 1px solid rgba(212,175,55,0.15); padding: 4px 12px; border-radius: 4px;">
-                    PRODUCTION RUN PENDING // COMING SOON
-                </div>
-                <div style="color: rgba(255,255,255,0.25); font-size: 0.8rem; max-width: 280px; margin-top: 15px; line-height: 1.4;">
-                    Interface elements and digital image assets are currently undergoing studio rendering.
-                </div>
+            <div class="showcase-panel" style="background: #050505;">
+                 <div class="coming-soon-placeholder" style="min-height: 300px; border: none; background: transparent;">
+                    <div style="font-size: 2.2rem; color: rgba(212,175,55,0.2); margin-bottom: 15px;">♠</div>
+                    <div style="color: #ffffff; font-size: 0.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;">VAULT ARCHIVE</div>
+                 </div>
             </div>
-
         </div>
-
-
-        <!-- ==================== STUDIO CHANGELOG & ROADMAP TIMELINE ==================== -->
-        <section class="changelog-section">
-            <h3 class="tech-mono" style="color: var(--gold); font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; text-align: center; margin-bottom: 10px;">STUDIO PIPELINE HISTORY</h3>
-            <div class="changelog-container">
-                <div class="changelog-item">
-                    <span class="changelog-version">v1.4.2 Deployment Run</span>
-                    <span class="changelog-date">June 2026</span>
-                    <p class="changelog-text">Optimized the background media recording core pipelines specifically for Android 14 API stability limitations. Re-aligned structural responsive viewport metrics across multi-column device layouts.</p>
-                </div>
-                <div class="changelog-item">
-                    <span class="changelog-version">v1.4.0 Engine Upgrade</span>
-                    <span class="changelog-date">May 2026</span>
-                    <p class="changelog-text">Migrated internal repository asset allocation targets over to an automated local encryption algorithm payload layer utilizing localized military-grade AES-256 GCM architectures.</p>
-                </div>
-            </div>
-        </section>
 
     </main>
 
@@ -409,32 +344,17 @@
         <div style="background: #0a0a0a; border: 1px solid rgba(212,175,55,0.1); border-radius: 8px; padding: 40px; max-width: 750px; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
             <h3 class="tech-mono" style="color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-weight: 700;">The Ace of Spades Privacy Guarantee</h3>
             <p style="color: #ffffff; font-size: 0.9rem; line-height: 1.6; margin: 0; font-weight: 300;">
-                We build strictly under zero-knowledge security protocols. Ace of Spades Apps never harvests telemetry, intercepts user databases, or syncs your personal keys to cloud systems—your data belongs to you, isolated entirely on-device[cite: 1].
+                We build strictly under zero-knowledge security protocols. Ace of Spades Apps never harvests telemetry, intercepts user databases, or syncs your personal data to cloud systems—your data belongs to you, isolated entirely on-device.
             </p>
         </div>
     </section>
 
-    <!-- Footer with Handcrafted Custom Playing Card -->
+    <!-- Footer -->
     <footer>
-        <!-- System Network Status Indicator -->
         <div class="tech-mono" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 1px;">
             <span class="pulse-dot"></span> STUDIO CORE: OPERATIONAL // PIPELINE: ACTIVE (JUNE 2026)
         </div>
-
-        <p>&copy; 2026 Ace of Spades Apps. Inspired by <span style="color: var(--gold); display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;">
-            Brenda the Gin Rummy Queen 
-            <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff; border-radius: 4px; box-shadow: 0 2px 6px rgba(255, 255, 255, 0.15), 0 0 10px rgba(212, 175, 55, 0.3);">
-                <rect width="28" height="42" fill="#ffffff" rx="4" />
-                <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
-                <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
-                <text x="14" y="11.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle">♠</text>
-                <text x="14" y="36.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle" transform="rotate(180, 14, 33)">♠</text>
-                <g transform="translate(28, 42) rotate(180)">
-                    <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
-                    <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
-                </g>
-            </svg>
-        </span></p>
+        <p>&copy; 2026 Ace of Spades Apps. Designed for total device sovereignty.</p>
     </footer>
 
 </body>
