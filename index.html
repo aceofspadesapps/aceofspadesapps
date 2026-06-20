@@ -10,12 +10,62 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-        .hub-tile { background: #0c0c0c; border: 1px solid var(--border); border-radius: 12px; padding: 40px; text-align: center; text-decoration: none; transition: all 0.3s ease; }
-        .hub-tile:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(212,175,55,0.1); }
-        .hub-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
-        .hub-title { color: #fff; font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 1px; }
-        .hub-desc { color: var(--text-muted); font-size: 0.85rem; margin-top: 10px; }
-        @media (max-width: 768px) { .hub-grid { grid-template-columns: 1fr; } }
+        .hub-tile {
+            background: #0c0c0c;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .hub-tile:hover { border-color: var(--gold); }
+
+        .hub-gallery {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            background: #000;
+        }
+        .hub-gallery::-webkit-scrollbar { height: 4px; }
+        .hub-gallery::-webkit-scrollbar-thumb { background: var(--gold-mute); }
+
+        .hub-img {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            scroll-snap-align: center;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .hub-tile:hover .hub-img { opacity: 1; }
+
+        .hub-info {
+            padding: 20px;
+            background: linear-gradient(to bottom, transparent, #0c0c0c);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .hub-title { color: #fff; font-family: 'Cinzel', serif; font-size: 1.2rem; letter-spacing: 1px; }
+        .hub-desc { color: var(--text-muted); font-size: 0.8rem; margin-top: 5px; }
+
+        .deploy-btn {
+            margin-top: 15px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .hub-grid { grid-template-columns: 1fr; }
+            .hub-gallery { height: 200px; }
+        }
     </style>
 </head>
 <body style="background:#000;">
@@ -64,16 +114,35 @@
         </div>
 
         <div class="hub-grid">
-            <a href="vault.html" class="hub-tile">
-                <div class="hub-icon">🔒</div>
-                <div class="hub-title">ELITE VAULT</div>
-                <div class="hub-desc">Military-grade media encryption suite.</div>
-            </a>
-            <a href="calories.html" class="hub-tile">
-                <div class="hub-icon">⚡</div>
-                <div class="hub-title">CALORIES KING</div>
-                <div class="hub-desc">High-performance macro tracking architecture.</div>
-            </a>
+            <!-- VAULT TILE -->
+            <div class="hub-tile">
+                <div class="hub-gallery">
+                    <img src="vault-photos/Store_3_Vault_Master.png" class="hub-img">
+                    <img src="vault-photos/ghost folders.png" class="hub-img">
+                    <img src="vault-photos/Store_2_Entrance.png" class="hub-img">
+                    <img src="vault-photos/Store_4_Intruder_Caught.jpg" class="hub-img">
+                    <img src="vault-photos/Store_6_Folders_Grid.jpg" class="hub-img">
+                </div>
+                <a href="vault.html" class="hub-info">
+                    <div class="hub-title">ELITE VAULT</div>
+                    <div class="hub-desc">Military-grade media encryption suite.</div>
+                    <div class="deploy-btn">DEPLOY MODULE 01 // ARCHIVE ❯</div>
+                </a>
+            </div>
+
+            <!-- CALORIES TILE -->
+            <div class="hub-tile">
+                <div class="hub-gallery">
+                    <!-- Placeholder branding for Calories King until screenshots are ready -->
+                    <div style="flex:0 0 100%; display:flex; align-items:center; justify-content:center; background:#050505; color:var(--gold); font-size:3rem;">♠</div>
+                    <div style="flex:0 0 100%; display:flex; align-items:center; justify-content:center; background:#111; color:#fff; font-weight:bold; letter-spacing:4px;">CALORIE KING</div>
+                </div>
+                <a href="calories.html" class="hub-info">
+                    <div class="hub-title">CALORIES KING</div>
+                    <div class="hub-desc">High-performance macro tracking architecture.</div>
+                    <div class="deploy-btn">DEPLOY MODULE 02 // MACRO ❯</div>
+                </a>
+            </div>
         </div>
     </main>
 
