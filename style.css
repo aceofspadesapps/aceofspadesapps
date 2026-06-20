@@ -44,6 +44,7 @@ header {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
 }
 
 .logo-img {
@@ -215,6 +216,15 @@ nav a:hover, nav a.active {
     align-items: center;
     overflow: hidden;
     min-height: 480px;
+}
+
+/* Hub Tile Links Fix */
+.hub-info {
+    text-decoration: none !important;
+}
+
+.hub-title, .hub-desc, .deploy-btn {
+    text-decoration: none !important;
 }
 
 /* Buttons */
