@@ -1,5 +1,5 @@
 /* Import a luxury serif font for headers */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
 /* Custom variables for the Ace of Spades aesthetic */
 :root {
@@ -24,7 +24,7 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-light);
     line-height: 1.6;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* Header & Navigation */
@@ -65,14 +65,18 @@ header {
 
 nav {
     display: flex;
-    gap: 20px;
+    gap: 24px;
+    align-items: center;
 }
 
 nav a {
     color: var(--text-light);
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s, text-shadow 0.3s;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -80,11 +84,40 @@ nav a {
 
 nav a:hover, nav a.active {
     color: var(--gold);
-    text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
 }
 
-.nav-text { display: inline; }
-.nav-icon { display: none; }
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0c0c0c;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    border: 1px solid var(--gold-mute);
+    border-radius: 4px;
+    z-index: 1;
+    top: 100%;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.75rem;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.dropdown-content a:last-child { border-bottom: none; }
+.dropdown-content a:hover { background-color: #1a1a1a; color: var(--gold); }
+.dropdown:hover .dropdown-content { display: block; }
+
+.nav-icon { display: none; width: 22px; height: 22px; stroke: currentColor; }
 
 /* Hero Banner Section */
 .hero {
@@ -228,17 +261,19 @@ footer {
     font-size: 0.8rem;
 }
 
-/* MOBILE FIXES - ADDED SURGICALLY */
+/* MOBILE FIXES */
 @media (max-width: 768px) {
     header {
-        flex-direction: row; /* Keep logo and nav side-by-side */
         padding: 12px 15px;
         justify-content: space-between;
     }
 
     .nav-text { display: none; }
-    .nav-icon { display: flex; width: 24px; height: 24px; }
-    nav { gap: 18px; }
+    .nav-icon { display: block; }
+    nav { gap: 15px; }
+
+    .dropdown:hover .dropdown-content { display: none; }
+    .dropdown.active-mobile .dropdown-content { display: block; position: fixed; top: 60px; left: 0; width: 100%; }
 
     .brand-name { font-size: 1rem; letter-spacing: 1px; }
     .logo-img { height: 30px; }
@@ -246,7 +281,6 @@ footer {
     .hero h1 { font-size: 2.2rem; }
     .hero { padding: 60px 20px; }
 
-    /* Reordering App Containers for Mobile */
     .app-section-container {
         display: grid !important;
         grid-template-columns: 1fr !important;
@@ -265,15 +299,8 @@ footer {
         min-height: auto !important;
     }
 
-    .tags-container {
-        order: 3 !important;
-        padding: 0 20px 20px 20px;
-    }
-
-    .cta-container {
-        order: 4 !important;
-        padding: 0 20px 30px 20px;
-    }
+    .tags-container { order: 3 !important; padding: 0 20px 20px 20px; }
+    .cta-container { order: 4 !important; padding: 0 20px 30px 20px; }
 
     .module-divider { margin: 40px 0; padding: 15px; }
 
