@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPEAK YOUR TRUTH - Ace of Spades Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
+        .matrix-column { background: #0c0c0c; border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+        .matrix-header { color: var(--gold); font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid var(--gold-mute); padding-bottom: 10px; }
+        .feature-item { margin-bottom: 15px; }
+        .feature-item h4 { color: #fff; font-size: 0.95rem; margin-bottom: 4px; }
+        .feature-item p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
+        @media (max-width: 768px) { .matrix-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body style="background:#000;">
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo-img">
+            <span class="brand-name">Ace of Spades</span>
+        </a>
+        <nav>
+            <a href="support.html">
+                <span class="nav-text">Support</span>
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </a>
+            <a href="privacy.html">
+                <span class="nav-text">Privacy</span>
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="app-section-container">
+            <div class="app-info-panel">
+                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Closed Beta Track</div>
+                <h3 style="font-size: 2.2rem; color: #ffffff; margin: 0 0 10px 0; font-family: 'Cinzel', serif;">SPEAK YOUR TRUTH</h3>
+
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">
+                    A high-end, anonymous sanctuary built exclusively for those who need to set down their weight without judgment. Speak Your Truth combines a minimalist "Silent Room" experience with a secure, self-governing brotherhood hierarchy.
+                </p>
+
+                <div class="tags-container tech-mono" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px;">
+                    <span style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.15); color: var(--gold); font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Zero-Knowledge</span>
+                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Anonymous Auth</span>
+                    <span style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #ccc; font-size: 0.7rem; padding: 5px 12px; border-radius: 4px;">Biometric Shield</span>
+                </div>
+
+                <div class="cta-container">
+                    <a href="mailto:support@aceofspadesapps.com?subject=BETA ACCESS REQUEST: SPEAK YOUR TRUTH" class="btn">Request Beta Access</a>
+                </div>
+            </div>
+
+            <div class="showcase-panel">
+                <div class="preview-slider-container">
+                    <div class="slider-item item-wide"><img src="truth-photos/Screenshot_20260627_012817_Speak_Your_Truth.jpg_202606270135.jpeg" alt="Hero"></div>
+                    <div class="slider-item item-wide"><img src="truth-photos/Screenshot_20260627_012817_Speak_Your_Truth.jpg_202606270136.jpeg" alt="Feed"></div>
+                    <div class="slider-item item-wide"><img src="truth-photos/Screenshot_20260627_012817_Speak_Your_Truth.jpg_202606270137.jpeg" alt="Vault"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="matrix-grid">
+            <div class="matrix-column">
+                <div class="matrix-header">Universal Anonymity</div>
+                <div class="feature-item">
+                    <h4>The Silent Room</h4>
+                    <p>A minimalist sanctuary to express truth without the risk of public identification.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Anonymous Identity</h4>
+                    <p>No emails, names, or numbers. Every user is identified only as a Brother or Sister.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Identity Hard-Lock</h4>
+                    <p>Users are locked into their peer support group to preserve safety and trust.</p>
+                </div>
+            </div>
+
+            <div class="matrix-column">
+                <div class="matrix-header">The Brotherhood Jury</div>
+                <div class="feature-item">
+                    <h4>Tiered Hierarchy</h4>
+                    <p>Earn Vouches to ascend from Guardian to Elder and join the governing Council.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Elder Board</h4>
+                    <p>Private strategy channels for high-vouch leaders to coordinate sanctuary defense.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Honor System</h4>
+                    <p>Dedicated leadership trackers and progress manuals for those serving the Jury.</p>
+                </div>
+            </div>
+
+            <div class="matrix-column">
+                <div class="matrix-header">Operational Security</div>
+                <div class="feature-item">
+                    <h4>Biometric Vault</h4>
+                    <p>Mandatory Face ID or PIN lock triggered on every startup and session re-entry.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Keyboard Defense</h4>
+                    <p>Intelligent layout lifting to ensure your private truth is never obscured while typing.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Founder Vision</h4>
+                    <p>Invisible ghost-mode for high-level oversight of all private communications.</p>
+                </div>
+            </div>
+
+            <div class="matrix-column">
+                <div class="matrix-header">Survival Logistics</div>
+                <div class="feature-item">
+                    <h4>Global Crisis HUD</h4>
+                    <p>Dynamic emergency support that automatically detects and provides local crisis intel.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Direct Intercept</h4>
+                    <p>Crisis buttons hand off directly to your phone's native emergency dialer for speed.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Absolute Sanitation</h4>
+                    <p>System Wipe commands to instantly purge all local sanctuary data on demand.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ace of Spades Apps. Inspired by <span style="color: var(--gold); display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;">
+            Brenda the Gin Rummy Queen
+            <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff; border-radius: 4px; box-shadow: 0 2px 6px rgba(255, 255, 255, 0.15), 0 0 10px rgba(212, 175, 55, 0.3);">
+                <rect width="28" height="42" fill="#ffffff" rx="4" />
+                <text x="2.5" y="9.5" font-family="sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
+                <text x="2.5" y="16.5" font-family="sans-serif" font-size="7.5" fill="#000000">♠</text>
+                <text x="14" y="11.5" font-family="sans-serif" font-size="11" fill="#000000" text-anchor="middle">♠</text>
+                <text x="14" y="36.5" font-family="sans-serif" font-size="11" fill="#000000" text-anchor="middle" transform="rotate(180, 14, 33)">♠</text>
+                <g transform="translate(28, 42) rotate(180)">
+                    <text x="2.5" y="9.5" font-family="sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
+                    <text x="2.5" y="16.5" font-family="sans-serif" font-size="7.5" fill="#000000">♠</text>
+                </g>
+            </svg>
+        </span></p>
+    </footer>
+
+</body>
+</html>

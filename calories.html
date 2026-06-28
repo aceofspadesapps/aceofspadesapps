@@ -3,11 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calories King Elite - Ace of Spades Apps</title>
+    <title>ACE CALORIE TRACKER - Ace of Spades Apps</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .matrix-column {
+            background: #0c0c0c;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+        }
+        .matrix-header {
+            color: var(--gold);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--gold-mute);
+            padding-bottom: 10px;
+        }
+        .feature-item { margin-bottom: 15px; }
+        .feature-item h4 { color: #fff; font-size: 0.95rem; margin-bottom: 4px; }
+        .feature-item p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
+
+        @media (max-width: 768px) {
+            .matrix-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body style="background:#000;">
 
@@ -31,11 +63,11 @@
     <main class="container">
         <div class="app-section-container">
             <div class="app-info-panel">
-                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Production Active</div>
-                <h3 style="font-size: 2.2rem; color: #ffffff; margin: 0 0 10px 0; font-family: 'Cinzel', serif;">Calories King Elite</h3>
+                <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Closed Beta Track</div>
+                <h3 style="font-size: 2.2rem; color: #ffffff; margin: 0 0 10px 0; font-family: 'Cinzel', serif;">ACE CALORIE TRACKER</h3>
 
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">
-                    Take absolute command over your nutrition with high-performance tracking architecture. Calories King Elite combines localized data security with rapid macro-logging mechanics and advanced transformation archiving.
+                    Take absolute command over your nutrition with high-performance tracking architecture. ACE CALORIE TRACKER combines localized data security with rapid macro-logging mechanics and advanced transformation archiving.
                 </p>
 
                 <div class="tags-container tech-mono" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px;">
@@ -45,15 +77,85 @@
                 </div>
 
                 <div class="cta-container">
-                    <a href="#" class="btn" style="opacity: 0.5; cursor: not-allowed; pointer-events: none;">Coming Soon</a>
+                    <a href="mailto:support@aceofspadesapps.com?subject=BETA ACCESS REQUEST: ACE CALORIE TRACKER" class="btn">Request Beta Access</a>
                 </div>
             </div>
 
             <div class="showcase-panel">
-                 <div style="text-align: center;">
-                    <div style="font-size: 3rem; color: var(--gold); margin-bottom: 10px;">♠</div>
-                    <div style="color:#fff; letter-spacing: 5px; font-weight: bold;">CALORIE KING</div>
-                 </div>
+                <div class="preview-slider-container">
+                    <div class="slider-item item-wide"><img src="ckal-photos/01_ACE_HERO_HUD.jpg" alt="HUD"></div>
+                    <div class="slider-item item-wide"><img src="ckal-photos/02_ACE_CHARTS_INTEL.jpg" alt="Charts"></div>
+                    <div class="slider-item item-wide"><img src="ckal-photos/03_ACE_SECURE_VAULT.jpg" alt="Vault"></div>
+                    <div class="slider-item item-wide"><img src="ckal-photos/04_ACE_DATA_CONTROL.jpg" alt="Data"></div>
+                    <div class="slider-item item-wide"><img src="ckal-photos/05_ACE_ELITE_PROFILE.jpg" alt="Profile"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12-Point Tactical Matrix -->
+        <div class="matrix-grid">
+            <div class="matrix-column">
+                <div class="matrix-header">Operational Intel</div>
+                <div class="feature-item">
+                    <h4>Tactical HUD</h4>
+                    <p>Real-time gyro-stabilized dashboard for tracking remaining calories and macro targets.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>On-Device AI</h4>
+                    <p>Localized neural processing identifies meals instantly via photo or voice description.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Barcode Intelligence</h4>
+                    <p>Gain instant nutritional intel on global products via high-speed localized scanning.</p>
+                </div>
+            </div>
+
+            <div class="matrix-column">
+                <div class="matrix-header">Surveillance & Defense</div>
+                <div class="feature-item">
+                    <h4>Biometric Security</h4>
+                    <p>Lock your private nutrition data and transformation media behind Fingerprint or Face ID.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Zero-Knowledge Privacy</h4>
+                    <p>Absolute data sovereignty. No cloud accounts, no servers, no background tracking loops.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Secure Progress Vault</h4>
+                    <p>An encrypted archive for transformation photos, secured against unauthorized device access.</p>
+                </div>
+            </div>
+
+            <div class="matrix-column">
+                <div class="matrix-header">Performance Logistics</div>
+                <div class="feature-item">
+                    <h4>Hydration Monitoring</h4>
+                    <p>Track daily water intake with customized glass targets and smart reminders.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Creatine & Supp Stacks</h4>
+                    <p>Specialized modules for tracking daily supplements and performance-enhancing stacks.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Activity Calibration</h4>
+                    <p>Integrated step tracking and active calorie burn adjustments for total metabolic precision.</p>
+                </div>
+            </div>
+
+            <div class="matrix-column">
+                <div class="matrix-header">Command & Control</div>
+                <div class="feature-item">
+                    <h4>Performance Briefings</h4>
+                    <p>Generate professional PDF reports of your weekly trends and mission progress.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Raw Data Access</h4>
+                    <p>Export your full nutritional history in raw CSV format for external analysis.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>System Wipe Protocol</h4>
+                    <p>Instant sanitation command that wipes all local app data in case of security requirements.</p>
+                </div>
             </div>
         </div>
     </main>
