@@ -191,10 +191,11 @@ nav a:hover, nav a.active { color: var(--gold); }
     display: flex;
     flex-wrap: nowrap;
     background: var(--card-bg);
-    border: 1px solid var(--border);
+    border: 1px solid var(--gold); /* Gold Border */
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 40px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.1); /* Subtle Glow */
 }
 
 .app-info-panel {
@@ -298,7 +299,7 @@ nav a:hover, nav a.active { color: var(--gold); }
     background: rgba(12, 12, 12, 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--gold); /* Gold Border */
     border-radius: 12px;
     overflow: hidden;
     display: flex;
@@ -307,6 +308,7 @@ nav a:hover, nav a.active { color: var(--gold); }
     transition: all 0.3s ease;
     position: relative;
     color: inherit;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.05);
 }
 
 /* Tactical Email Link Style */
