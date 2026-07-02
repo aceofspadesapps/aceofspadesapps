@@ -9,20 +9,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #000000;
-            color: #ffffff;
-            margin: 0;
-            opacity: 0;
-            animation: pageFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .tech-mono { font-family: 'Space Grotesk', sans-serif; }
-        @keyframes pageFadeIn {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
+        #loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--gold);
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
         }
         .faq-section { max-width: 800px; margin: 40px auto 60px auto; text-align: left; }
         .faq-item { background: #0c0c0c; border: 1px solid rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 15px; overflow: hidden; }
@@ -30,15 +32,22 @@
         .faq-item summary::-webkit-details-marker { display: none; }
         .faq-item summary::after { content: '＋'; color: var(--gold, #d4af37); font-weight: 700; font-size: 1rem; transition: transform 0.2s ease; }
         .faq-item[open] summary::after { content: '－'; }
-        .faq-content { padding: 0 20px 20px 20px; color: var(--text-muted, #888); font-size: 0.88rem; line-height: 1.6; border-top: 1 solid rgba(255,255,255,0.02); padding-top: 15px; }
+        .faq-content { padding: 0 20px 20px 20px; color: var(--text-muted, #888); font-size: 0.88rem; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.02); padding-top: 15px; }
     </style>
 </head>
 <body style="background:#000;">
 
+    <div id="loader">ESTABLISHING SECURE CONNECTION...</div>
+    <script>
+        if (sessionStorage.getItem('hasSeenIntro')) {
+            document.getElementById('loader').style.display = 'none';
+        }
+    </script>
+
     <header>
         <a href="index.html" class="logo-container">
             <img src="logo.png" alt="Logo" class="logo-img">
-            <span class="brand-name">Ace of Spades</span>
+            <span class="brand-name metallic-gold">Ace of Spades</span>
         </a>
         <nav>
             <a href="index.html">Hub</a>
@@ -50,9 +59,9 @@
     <main class="container" style="max-width: 850px; margin: 60px auto; padding: 0 20px;">
         <div style="text-align: center; margin-bottom: 50px;">
             <span class="tech-mono" style="color: var(--gold, #d4af37); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Central Operations</span>
-            <h2 class="section-title" style="font-size: 2rem; font-weight: 600; margin: 10px 0 15px 0; letter-spacing: -0.5px;">Customer Support</h2>
+            <h2 style="font-size: 2rem; font-weight: 600; margin: 10px 0 15px 0;">Customer Support</h2>
         </div>
-        
+
         <div class="faq-section">
             <h3 class="tech-mono" style="font-size: 0.9rem; color: var(--gold, #d4af37); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px;">SYSTEM KNOWLEDGE ADVISORIES</h3>
             
@@ -95,19 +104,47 @@
         </div>
 
         <p>&copy; 2026 Ace of Spades Apps. Inspired by <span style="color: var(--gold); display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;">
-            Brenda the Gin Rummy Queen 
+            Brenda the Gin Rummy Queen
             <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff; border-radius: 4px; box-shadow: 0 2px 6px rgba(255, 255, 255, 0.15), 0 0 10px rgba(212, 175, 55, 0.3);">
                 <rect width="28" height="42" fill="#ffffff" rx="4" />
                 <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
-                <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">?</text>
-                <text x="14" y="11.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle">?</text>
-                <text x="14" y="36.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle" transform="rotate(180, 14, 33)">?</text>
+                <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
+                <text x="14" y="11.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle">♠</text>
+                <text x="14" y="36.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="11" fill="#000000" text-anchor="middle" transform="rotate(180, 14, 33)">♠</text>
                 <g transform="translate(28, 42) rotate(180)">
                     <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
-                    <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">?</text>
+                    <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
                 </g>
             </svg>
         </span></p>
     </footer>
+
+    <script>
+        // Intro Animation Logic
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (sessionStorage.getItem('hasSeenIntro')) {
+                loader.remove();
+                return;
+            }
+
+            setTimeout(() => {
+                loader.textContent = 'CONNECTION ESTABLISHED [OK]';
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => {
+                        loader.remove();
+                        sessionStorage.setItem('hasSeenIntro', 'true');
+                    }, 500);
+                }, 800);
+            }, 1200);
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            document.body.style.setProperty('--mouse-x', (e.clientX / window.innerWidth * 100) + '%');
+            document.body.style.setProperty('--mouse-y', (e.clientY / window.innerHeight * 100) + '%');
+        });
+    </script>
+
 </body>
 </html>

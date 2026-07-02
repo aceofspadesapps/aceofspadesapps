@@ -1,14 +1,13 @@
-/* Import a luxury serif font for headers */
+/* Import luxury fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
-/* Custom variables for the Ace of Spades aesthetic */
 :root {
     --bg-dark: #000000;
     --card-bg: #0c0c0c;
     --gold: #d4af37;
     --gold-glow: #f3e5ab;
     --gold-dark: #aa7c11;
-    --gold-mute: #33d4af37;
+    --gold-mute: rgba(212, 175, 55, 0.2);
     --text-light: #f5f5f5;
     --text-muted: #888888;
     --border: #1a1a1a;
@@ -48,6 +47,29 @@ body {
     color: var(--text-light);
     line-height: 1.6;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal wobble */
+}
+
+/* Tactical Scanner Background Logic */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(212, 175, 55, 0.12), transparent 100%),
+        linear-gradient(to right, rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 50px 50px, 50px 50px;
+
+    -webkit-mask-image: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), black 30%, transparent 100%);
+    mask-image: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), black 30%, transparent 100%);
+
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Header & Navigation */
@@ -77,9 +99,17 @@ header {
     border: 1px solid var(--gold);
 }
 
+/* Premium Metallic Gradient Class - Fixed for Wrapping */
+.metallic-gold {
+    background: linear-gradient(to bottom, #bf953f 22%, #fcf6ba 45%, #b38728 50%, #fbf5b7 55%, #aa771c 78%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline; /* Better for text wrapping */
+}
+
 .brand-name {
     font-family: 'Cinzel', serif;
-    color: var(--gold);
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -98,17 +128,21 @@ nav a {
     font-size: 0.85rem;
     text-transform: uppercase;
     transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 nav a:hover, nav a.active { color: var(--gold); }
-.nav-icon { display: none; width: 22px; height: 22px; }
+.nav-icon { display: none; width: 20px; height: 20px; }
 
 /* Hero */
 .hero {
-    padding: 80px 20px;
-    background: radial-gradient(circle at center, #0f0f0f 0%, #000000 100%);
+    padding: 120px 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('banner.jpg');
+    background-size: cover;
+    background-position: center;
     text-align: center;
-    border-bottom: 1px solid var(--border);
 }
 
 .hero h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: #fff; margin-bottom: 10px; }
@@ -119,7 +153,7 @@ nav a:hover, nav a.active { color: var(--gold); }
 
 .app-section-container {
     display: flex;
-    flex-wrap: nowrap; /* Keep side-by-side on PC */
+    flex-wrap: nowrap;
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -128,15 +162,16 @@ nav a:hover, nav a.active { color: var(--gold); }
 }
 
 .app-info-panel {
-    flex: 1;
+    flex: 1.2;
     padding: 45px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 450px;
 }
 
 .showcase-panel {
-    flex: 1;
+    flex: 2;
     background: #050505;
     padding: 20px;
     display: flex;
@@ -145,20 +180,24 @@ nav a:hover, nav a.active { color: var(--gold); }
     border-left: 1px solid var(--border);
 }
 
-/* Slider */
+/* Slider with Snap */
 .preview-slider-container {
     display: flex;
     gap: 15px;
     overflow-x: auto;
     width: 100%;
     padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 }
+.preview-slider-container::-webkit-scrollbar { display: none; }
 
 .slider-item {
     flex: 0 0 auto;
     border-radius: 8px;
     overflow: hidden;
     background: #000;
+    scroll-snap-align: center;
 }
 
 .item-wide { width: 320px; }
@@ -177,47 +216,65 @@ nav a:hover, nav a.active { color: var(--gold); }
     text-transform: uppercase;
 }
 
+/* Hub Tiles - Glassmorphism */
+.hub-tile {
+    background: rgba(12, 12, 12, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    color: inherit;
+}
+
 /* MOBILE FIXES */
 @media (max-width: 768px) {
-    header { padding: 12px; }
+    header { padding: 12px 15px; }
     .nav-text { display: none; }
     .nav-icon { display: block; }
+    nav { gap: 15px; }
+
+    .brand-name { font-size: 0.9rem; letter-spacing: 0.5px; }
 
     .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 0.8rem; letter-spacing: 2px; }
 
     .app-section-container {
-        flex-direction: column; /* Stack on mobile */
+        flex-direction: column;
     }
 
-    .app-info-panel { padding: 25px; }
-    .app-info-panel h3 { font-size: 1.6rem !important; } /* Shrink Title */
-
-    .tags-container {
-        display: flex;
-        flex-wrap: wrap !important; /* Force tags to wrap */
-        gap: 8px;
-    }
+    .app-info-panel { padding: 25px; min-width: unset; }
+    .app-info-panel h3 { font-size: 1.6rem !important; }
 
     .showcase-panel {
         border-left: none;
         border-bottom: 1px solid var(--border);
         padding: 10px;
-        order: -1; /* Photos above text on mobile */
+        order: -1;
     }
 
-    /* THE PHOTO SCALE FIX */
     .slider-item {
-        width: 75vw !important;
+        width: 85vw !important;
         max-height: 50vh;
     }
     .slider-item img {
         max-height: 50vh;
         object-fit: contain !important;
     }
+
+    /* Prevent footer blowout */
+    footer { padding: 40px 10px; }
+    footer span { display: block; margin-top: 10px; }
 }
 
 footer {
     text-align: center;
     padding: 60px 20px;
     color: var(--text-muted);
+    font-size: 0.9rem;
 }
