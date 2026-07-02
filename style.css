@@ -309,6 +309,21 @@ nav a:hover, nav a.active { color: var(--gold); }
     color: inherit;
 }
 
+/* Tactical Email Link Style */
+.email-link {
+    color: var(--gold);
+    font-weight: bold;
+    text-decoration: none;
+    word-break: break-all; /* Forces wrapping on mobile */
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: var(--gold-glow);
+}
+
 /* MOBILE FIXES */
 @media (max-width: 768px) {
     header { padding: 12px 15px; }
@@ -316,6 +331,12 @@ nav a:hover, nav a.active { color: var(--gold); }
     .nav-icon { display: block; }
     nav { gap: 15px; }
     .brand-name { font-size: 0.9rem; letter-spacing: 0.5px; }
+
+    /* Email Scale for Mobile */
+    .email-link {
+        font-size: 1rem !important;
+    }
+
 
     /* Heading Scale Fix */
     h2 { font-size: 1.8rem !important; }
