@@ -191,12 +191,13 @@ nav a:hover, nav a.active { color: var(--gold); }
     display: flex;
     flex-wrap: nowrap;
     background: var(--card-bg);
-    border: 1px solid var(--gold); /* Gold Border */
+    border: 1px solid var(--gold) !important; /* Forced Gold */
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 40px;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.1); /* Subtle Glow */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
 }
+
 
 .app-info-panel {
     flex: 1.2;
@@ -299,7 +300,7 @@ nav a:hover, nav a.active { color: var(--gold); }
     background: rgba(12, 12, 12, 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--gold); /* Gold Border */
+    border: 1px solid var(--gold) !important; /* Forced Gold */
     border-radius: 12px;
     overflow: hidden;
     display: flex;
@@ -310,6 +311,7 @@ nav a:hover, nav a.active { color: var(--gold); }
     color: inherit;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.05);
 }
+
 
 /* Tactical Email Link Style */
 .email-link {
@@ -347,17 +349,23 @@ nav a:hover, nav a.active { color: var(--gold); }
 
     /* Container & Spacing Fix */
     main.container {
-        padding-top: 30px !important;
-        margin-top: 10px !important;
+        padding-top: 50px !important; /* Added more space at the top */
+        margin-top: 20px !important;
     }
 
     /* Box Visibility Fix for Mobile */
     .manifesto-box, .faq-item, .support-form-container {
-        background: rgba(212, 175, 55, 0.08) !important;
-        border: 1px solid rgba(212, 175, 55, 0.25) !important;
-        padding: 25px !important;
-        margin-bottom: 50px !important; /* Heavily increased spacing */
+        background: rgba(212, 175, 55, 0.04) !important; /* Reduced "Muddy" look */
+        border: 1px solid rgba(212, 175, 55, 0.3) !important;
+        padding: 0 !important; /* Reset padding to handle via internal content */
+        margin-bottom: 30px !important; /* Better spacing */
     }
+
+    /* Tighten Internal Spacing for Mobile Boxes */
+    .manifesto-box { padding: 20px !important; }
+    .faq-item summary { padding: 15px 20px !important; }
+    .support-form-container { padding: 30px 20px !important; }
+
 
 
     .app-section-container {
@@ -369,10 +377,11 @@ nav a:hover, nav a.active { color: var(--gold); }
 
     .showcase-panel {
         border-left: none;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--gold); /* Switched to Gold for Mobile */
         padding: 10px;
         order: -1;
     }
+
 
     .slider-item {
         width: 85vw !important;
