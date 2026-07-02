@@ -55,9 +55,23 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             background: #000;
-            scrollbar-width: none;
         }
-        .hub-gallery::-webkit-scrollbar { display: none; }
+        /* Hub Gallery Gold Scrollbar - FORCED VISIBILITY */
+        .hub-gallery::-webkit-scrollbar {
+            height: 10px !important;
+            display: block !important;
+        }
+        .hub-gallery::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05) !important;
+        }
+        .hub-gallery::-webkit-scrollbar-thumb {
+            background: var(--gold) !important;
+            border-radius: 10px;
+            border: 2px solid #000;
+        }
+
+
+
 
         .hub-img {
             flex: 0 0 100%;
@@ -167,6 +181,7 @@
 
         <div class="hub-grid">
             <a href="vault.html" class="hub-tile">
+                <div class="ribbon-wrapper"><div class="ribbon">LIVE</div></div>
                 <div class="hub-gallery">
                     <img src="vault-photos/Store_3_Vault_Master.png" class="hub-img">
                     <img src="vault-photos/ghost-folders.png" class="hub-img">
@@ -175,12 +190,12 @@
                 <div class="hub-info">
                     <h3 class="hub-title" style="color: var(--gold) !important;">ELITE VAULT</h3>
                     <p class="hub-desc">Military-grade media encryption suite.</p>
-                    <div class="deploy-btn">DEPLOY MODULE 01 // ARCHIVE ❯</div>
+                    <div class="deploy-btn">OPEN INTEL 01 ❯</div>
                 </div>
             </a>
 
             <a href="calories.html" class="hub-tile">
-                <div class="ribbon-wrapper"><div class="ribbon">LIVE</div></div>
+                <div class="ribbon-wrapper"><div class="ribbon">IN BETA</div></div>
                 <div class="hub-gallery">
                     <img src="ckal-photos/01_ACE_HERO_HUD.jpg" class="hub-img">
                     <img src="ckal-photos/02_ACE_CHARTS_INTEL.jpg" class="hub-img">
@@ -189,7 +204,7 @@
                 <div class="hub-info">
                     <h3 class="hub-title" style="color: var(--gold) !important;">ACE CALORIE TRACKER</h3>
                     <p class="hub-desc">High-performance macro tracking.</p>
-                    <div class="deploy-btn">DEPLOY MODULE 02 // MACRO ❯</div>
+                    <div class="deploy-btn">OPEN INTEL 02 ❯</div>
                 </div>
             </a>
 
@@ -203,7 +218,7 @@
                 <div class="hub-info">
                     <h3 class="hub-title" style="color: var(--gold) !important;">SPEAK YOUR TRUTH</h3>
                     <p class="hub-desc">Anonymous mental health sanctuary.</p>
-                    <div class="deploy-btn">DEPLOY MODULE 03 // SANCTUARY ❯</div>
+                    <div class="deploy-btn">OPEN INTEL 03 ❯</div>
                 </div>
             </a>
         </div>
@@ -213,9 +228,9 @@
         <div class="tech-mono" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 1px;">
             <span class="pulse-dot"></span> STUDIO CORE: OPERATIONAL // PIPELINE: ACTIVE
         </div>
-        <p>&copy; 2026 Ace of Spades Apps. Inspired by <span style="color: var(--gold); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px;">
+        <p>&copy; 2026 Ace of Spades Apps. Inspired by <span style="color: var(--gold); display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;">
             Brenda the Gin Rummy Queen
-            <svg width="28" height="42" viewBox="0 0 28 42" style="background: #ffffff !important; border-radius: 4px; box-shadow: 0 0 10px rgba(212,175,55,0.3); color-scheme: light; forced-color-adjust: none;">
+            <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff !important; border-radius: 4px; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); color-scheme: light; forced-color-adjust: none;">
                 <rect width="28" height="42" fill="#ffffff" rx="4" />
                 <text x="2.5" y="9.5" font-family="sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
                 <text x="2.5" y="16.5" font-family="sans-serif" font-size="7.5" fill="#000000">♠</text>
@@ -253,21 +268,35 @@
         document.addEventListener('mousemove', trackMouse);
         document.addEventListener('touchmove', trackMouse);
 
-        // Auto-Cycling Hub Screenshots
+        // Auto-Cycling Hub Screenshots - FIXED to allow manual scroll
         const tiles = document.querySelectorAll('.hub-tile');
         tiles.forEach(tile => {
             let interval;
             const gallery = tile.querySelector('.hub-gallery');
             const images = gallery.querySelectorAll('img');
             let index = 0;
+            let isUserScrolling = false;
+
+            // Unlock: Convert Vertical Wheel to Horizontal Scroll
+            gallery.addEventListener('wheel', (e) => {
+                if (e.deltaY !== 0) {
+                    e.preventDefault();
+                    gallery.scrollLeft += e.deltaY;
+                    isUserScrolling = true;
+                }
+            });
+
             tile.addEventListener('mouseenter', () => {
                 interval = setInterval(() => {
-                    index = (index + 1) % images.length;
-                    gallery.scrollTo({ left: gallery.offsetWidth * index, behavior: 'smooth' });
-                }, 2000);
+                    if (!isUserScrolling) {
+                        index = (index + 1) % images.length;
+                        gallery.scrollTo({ left: gallery.offsetWidth * index, behavior: 'smooth' });
+                    }
+                }, 3000);
             });
             tile.addEventListener('mouseleave', () => {
                 clearInterval(interval);
+                isUserScrolling = false;
                 index = 0;
                 gallery.scrollTo({ left: 0, behavior: 'smooth' });
             });

@@ -1,3 +1,31 @@
+/* FORCED ELITE GOLD SCROLLBARS - GLOBAL */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #d4af37 #000000;
+}
+
+::-webkit-scrollbar {
+    width: 14px !important;
+    height: 14px !important;
+    display: block !important;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505 !important;
+    border: 1px solid #1a1a1a !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d4af37 !important; /* THE MOVEABLE THING */
+    background-color: #d4af37 !important;
+    border-radius: 0px !important;
+    border: 3px solid #000000 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f3e5ab !important;
+}
+
 /* Import luxury fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
@@ -48,7 +76,7 @@ body {
     line-height: 1.6;
     font-family: 'Plus Jakarta Sans', sans-serif;
     position: relative;
-    overflow-x: hidden; /* Prevent horizontal wobble */
+    overflow-x: hidden;
 }
 
 /* Tactical Scanner Background Logic */
@@ -105,12 +133,12 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline; /* Better for text wrapping */
+    display: inline;
 }
 
 .brand-name {
     font-family: 'Cinzel', serif;
-    color: var(--gold); /* Solid bright gold */
+    color: var(--gold);
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -150,7 +178,7 @@ nav a:hover, nav a.active { color: var(--gold); }
 .hero h1 {
     font-family: 'Cinzel', serif;
     font-size: 3.5rem;
-    color: #fff; /* Switch to white for maximum "Elite" contrast */
+    color: #fff;
     margin-bottom: 10px;
     text-shadow: 0 4px 20px rgba(0,0,0,0.9);
 }
@@ -186,6 +214,7 @@ nav a:hover, nav a.active { color: var(--gold); }
     align-items: center;
     justify-content: center;
     border-left: 1px solid var(--border);
+    min-width: 0;
 }
 
 /* Slider with Snap */
@@ -194,34 +223,59 @@ nav a:hover, nav a.active { color: var(--gold); }
     gap: 15px;
     overflow-x: auto;
     width: 100%;
-    padding-bottom: 10px;
+    padding-bottom: 25px;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none;
 }
-.preview-slider-container::-webkit-scrollbar { display: none; }
 
 .slider-item {
     flex: 0 0 auto;
-    border-radius: 8px;
+    width: 450px;
+    border-radius: 12px;
     overflow: hidden;
     background: #000;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
-.item-wide { width: 320px; }
-.item-tall { width: 170px; }
+.item-wide { width: 450px; }
+.item-tall { width: 250px; }
 .slider-item img { width: 100%; height: auto; display: block; }
 
-/* Buttons */
+/* Gold Glass Manifesto Box */
+.manifesto-box {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: rgba(212, 175, 55, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.manifesto-box:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Elite Gold Buttons */
 .btn {
     display: inline-block;
     background: var(--gold);
-    color: #000;
+    color: #000 !important;
     padding: 12px 30px;
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: none !important;
     border-radius: 4px;
     text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--gold-glow);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
 }
 
 /* Hub Tiles - Glassmorphism */
@@ -246,36 +300,15 @@ nav a:hover, nav a.active { color: var(--gold); }
     .nav-text { display: none; }
     .nav-icon { display: block; }
     nav { gap: 15px; }
-
     .brand-name { font-size: 0.9rem; letter-spacing: 0.5px; }
-
     .hero h1 { font-size: 2.2rem; }
     .hero p { font-size: 0.8rem; letter-spacing: 2px; }
-
-    .app-section-container {
-        flex-direction: column;
-    }
-
+    .app-section-container { flex-direction: column; }
     .app-info-panel { padding: 25px; min-width: unset; }
     .app-info-panel h3 { font-size: 1.6rem !important; }
-
-    .showcase-panel {
-        border-left: none;
-        border-bottom: 1px solid var(--border);
-        padding: 10px;
-        order: -1;
-    }
-
-    .slider-item {
-        width: 85vw !important;
-        max-height: 50vh;
-    }
-    .slider-item img {
-        max-height: 50vh;
-        object-fit: contain !important;
-    }
-
-    /* Prevent footer blowout */
+    .showcase-panel { border-left: none; border-bottom: 1px solid var(--border); padding: 10px; order: -1; }
+    .slider-item { width: 85vw !important; max-height: 50vh; }
+    .slider-item img { max-height: 50vh; object-fit: contain !important; }
     footer { padding: 40px 10px; }
     footer span { display: block; margin-top: 10px; }
 }

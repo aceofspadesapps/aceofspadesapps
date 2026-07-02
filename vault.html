@@ -60,7 +60,7 @@
         <div class="app-section-container">
             <div class="app-info-panel">
                 <div class="tech-mono" style="color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Android OS • Production Active</div>
-                <h3 style="font-size: 2.2rem; color: var(--gold); margin: 0 0 10px 0; font-family: 'Cinzel', serif;">ELITE VAULT</h3>
+                <h2 class="metallic-gold" style="font-size: 2.5rem; font-weight: 600; margin: 0 0 10px 0;">ELITE VAULT</h2>
 
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">
                     Secure your digital life with a comprehensive security suite disguised as a fully functional scientific calculator. Engineered with military-grade local encryption, Elite Vault isolates your personal photos and videos with zero-knowledge architecture.
@@ -76,10 +76,14 @@
                     <div class="slider-item item-wide"><img src="vault-photos/Store_2_Entrance.png" alt="Entrance"></div>
                     <div class="slider-item item-wide"><img src="vault-photos/ghost-folders.png" alt="Folders"></div>
                     <div class="slider-item item-wide"><img src="vault-photos/Store_3_Vault_Master.png" alt="Vault"></div>
+                    <div class="slider-item item-tall"><img src="vault-photos/Store_4_Intruder_Caught.jpg" alt="Intruder"></div>
+                    <div class="slider-item item-wide"><img src="vault-photos/Store_5_Stealth_Toggles.jpg" alt="Stealth"></div>
+                    <div class="slider-item item-tall"><img src="vault-photos/Store_6_Folders_Grid.jpg" alt="Grid"></div>
                 </div>
             </div>
         </div>
 
+        <!-- 12-Point Tactical Matrix -->
         <div class="matrix-grid">
             <div class="matrix-column">
                 <div class="matrix-header">Operational Discretion</div>
@@ -155,7 +159,7 @@
 
         <p>&copy; 2026 Ace of Spades Apps. Inspired by <span style="color: var(--gold); display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;">
             Brenda the Gin Rummy Queen
-            <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff !important; border-radius: 4px; box-shadow: 0 2px 6px rgba(255, 255, 255, 0.15), 0 0 10px rgba(212, 175, 55, 0.3); color-scheme: light; forced-color-adjust: none;">
+            <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff !important; border-radius: 4px; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); color-scheme: light; forced-color-adjust: none;">
                 <rect width="28" height="42" fill="#ffffff" rx="4" />
                 <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
                 <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
@@ -170,6 +174,17 @@
     </footer>
 
     <script>
+        // PC UNLOCK: Convert Mouse Wheel to Horizontal Scroll
+        const slider = document.querySelector('.preview-slider-container');
+        if (slider) {
+            slider.addEventListener('wheel', (e) => {
+                if (e.deltaY !== 0) {
+                    e.preventDefault();
+                    slider.scrollLeft += e.deltaY;
+                }
+            }, { passive: false });
+        }
+
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             if (sessionStorage.getItem('hasSeenIntro')) {

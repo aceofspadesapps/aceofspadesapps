@@ -27,12 +27,36 @@
             text-transform: uppercase;
         }
         .faq-section { max-width: 800px; margin: 40px auto 60px auto; text-align: left; }
-        .faq-item { background: #0c0c0c; border: 1px solid rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 15px; overflow: hidden; }
-        .faq-item summary { padding: 20px; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; font-size: 0.95rem; }
+
+        /* Updated FAQ Item to match Glass Manifesto Style */
+        .faq-item {
+            background: rgba(212, 175, 55, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover { border-color: rgba(212, 175, 55, 0.3); transform: translateY(-2px); }
+
+        .faq-item summary { padding: 20px; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; font-size: 0.95rem; color: #fff; }
         .faq-item summary::-webkit-details-marker { display: none; }
         .faq-item summary::after { content: '＋'; color: var(--gold, #d4af37); font-weight: 700; font-size: 1rem; transition: transform 0.2s ease; }
         .faq-item[open] summary::after { content: '－'; }
-        .faq-content { padding: 0 20px 20px 20px; color: var(--text-muted, #888); font-size: 0.88rem; line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.02); padding-top: 15px; }
+        .faq-content { padding: 0 20px 20px 20px; color: var(--text-muted, #888); font-size: 0.88rem; line-height: 1.6; border-top: 1px solid rgba(212, 175, 55, 0.05); padding-top: 15px; }
+
+        /* Updated Support Form to match Glass Style */
+        .support-form-container {
+            background: rgba(212, 175, 55, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            padding: 45px 30px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body style="background:#000;">
@@ -58,54 +82,53 @@
 
     <main class="container" style="max-width: 850px; margin: 60px auto; padding: 0 20px;">
         <div style="text-align: center; margin-bottom: 50px;">
-            <span class="tech-mono" style="color: var(--gold, #d4af37); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Central Operations</span>
-            <h2 style="font-size: 2rem; font-weight: 600; margin: 10px 0 15px 0;">Customer Support</h2>
+            <div class="tech-mono" style="color: var(--gold, #d4af37); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px;">Central Operations</div>
+            <h2 class="metallic-gold" style="font-size: 2.5rem; font-weight: 600; margin: 0; display: block;">Customer Support</h2>
         </div>
 
         <div class="faq-section">
-            <h3 class="tech-mono" style="font-size: 0.9rem; color: var(--gold, #d4af37); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px;">SYSTEM KNOWLEDGE ADVISORIES</h3>
+            <h3 class="tech-mono" style="font-size: 0.9rem; color: var(--gold, #d4af37); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px;">FOUNDER'S DIRECTIVE</h3>
             
             <details class="faq-item">
-                <summary>How do I migrate my data to a new device?</summary>
+                <summary>Who is the force behind the studio?</summary>
                 <div class="faq-content">
-                    Navigate to Settings > Data & Backup Tools and select "Create System Backup." This generates a .db file that you can transfer to your new device. On the new device, use the "Restore from Backup" option to re-import your profile.
+                    Ace of Spades is a solo-driven architecture project. I build every module from the ground up to ensure absolute device sovereignty and privacy-first mechanics. No corporate bloat, just high-performance code.
                 </div>
             </details>
 
             <details class="faq-item">
-                <summary>How does the AI Meal Scanning work?</summary>
+                <summary>Why operate as a solo studio?</summary>
                 <div class="faq-content">
-                    Our AI engine utilizes on-device neural processing to identify nutritional values. All scanning is UNLIMITED and handled entirely on your handset to ensure absolute privacy.
+                    Maintaining a solo pipeline allows for 100% security oversight. No external teams, no third-party analytics, and no data leaks. When you use an Ace of Spades app, you are using a tool built by a single engineer who values privacy as much as you do.
                 </div>
             </details>
 
             <details class="faq-item">
-                <summary>Is my data stored on Ace of Spades servers?</summary>
+                <summary>How is support handled?</summary>
                 <div class="faq-content">
-                    No. We utilize a zero-knowledge architecture. Your calorie logs, body measurements, and progress media are stored exclusively in your device's private sandbox. We maintain zero external servers for user data.
+                    When you contact the engineering desk, you are speaking directly to me. There are no middle-men or support bots. Your intel and feedback directly shape the future of the project pipeline.
                 </div>
             </details>
         </div>
 
-        <div class="support-form" style="background: linear-gradient(135deg, #0d0d0d 0%, #070707 100%); border: 1px solid rgba(212,175,55,0.12); border-radius: 12px; text-align: center; padding: 45px 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-            <p style="color: #ffffff; font-size: 1.1rem; margin-bottom: 10px; font-weight: 600;">Contact our engineering desk</p>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+        <div class="support-form-container">
+            <p style="color: #ffffff; font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; font-family: 'Cinzel', serif;">Contact our engineering desk</p>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6;">
                 For tactical inquiries or technical support, click the button below. Response time is typically within 24 hours.
             </p>
             <a href="mailto:support@aceofspadesapps.com?subject=Support Request - Ace of Spades Apps" class="btn">Open Email Client</a>
         </div>
     </main>
 
-    <!-- Footer with Handcrafted Custom Playing Card -->
+    <!-- Footer -->
     <footer>
-        <!-- System Network Status Indicator -->
         <div class="tech-mono" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 20px; letter-spacing: 1px;">
-            <span class="pulse-dot"></span> STUDIO CORE: OPERATIONAL // PIPELINE: ACTIVE (JUNE 2026)
+            PIPELINE STATUS: ACTIVE // 2026 ACE OF SPADES APPS
         </div>
 
         <p>&copy; 2026 Ace of Spades Apps. Inspired by <span style="color: var(--gold); display: inline-flex; align-items: center; gap: 8px; vertical-align: middle;">
             Brenda the Gin Rummy Queen
-            <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff !important; border-radius: 4px; box-shadow: 0 2px 6px rgba(255, 255, 255, 0.15), 0 0 10px rgba(212, 175, 55, 0.3); color-scheme: light; forced-color-adjust: none;">
+            <svg width="28" height="42" viewBox="0 0 28 42" style="display: inline-block; vertical-align: middle; background: #ffffff !important; border-radius: 4px; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); color-scheme: light; forced-color-adjust: none;">
                 <rect width="28" height="42" fill="#ffffff" rx="4" />
                 <text x="2.5" y="9.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#000000">2</text>
                 <text x="2.5" y="16.5" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="7.5" fill="#000000">♠</text>
