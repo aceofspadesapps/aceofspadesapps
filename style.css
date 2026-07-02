@@ -301,17 +301,54 @@ nav a:hover, nav a.active { color: var(--gold); }
     .nav-icon { display: block; }
     nav { gap: 15px; }
     .brand-name { font-size: 0.9rem; letter-spacing: 0.5px; }
+
+    /* Heading Scale Fix */
+    h2 { font-size: 1.8rem !important; }
     .hero h1 { font-size: 2.2rem; }
     .hero p { font-size: 0.8rem; letter-spacing: 2px; }
-    .app-section-container { flex-direction: column; }
+
+    /* Container & Spacing Fix */
+    main.container {
+        padding-top: 30px !important;
+        margin-top: 10px !important;
+    }
+
+    /* Box Visibility Fix for Mobile */
+    .manifesto-box, .faq-item, .support-form-container {
+        background: rgba(212, 175, 55, 0.06) !important;
+        border: 1px solid rgba(212, 175, 55, 0.2) !important;
+        padding: 20px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .app-section-container {
+        flex-direction: column;
+    }
+
     .app-info-panel { padding: 25px; min-width: unset; }
     .app-info-panel h3 { font-size: 1.6rem !important; }
-    .showcase-panel { border-left: none; border-bottom: 1px solid var(--border); padding: 10px; order: -1; }
-    .slider-item { width: 85vw !important; max-height: 50vh; }
-    .slider-item img { max-height: 50vh; object-fit: contain !important; }
+
+    .showcase-panel {
+        border-left: none;
+        border-bottom: 1px solid var(--border);
+        padding: 10px;
+        order: -1;
+    }
+
+    .slider-item {
+        width: 85vw !important;
+        max-height: 50vh;
+    }
+    .slider-item img {
+        max-height: 50vh;
+        object-fit: contain !important;
+    }
+
+    /* Prevent footer blowout */
     footer { padding: 40px 10px; }
     footer span { display: block; margin-top: 10px; }
 }
+
 
 footer {
     text-align: center;
