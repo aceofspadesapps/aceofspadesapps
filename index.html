@@ -28,7 +28,7 @@
             text-transform: uppercase;
         }
 
-        .hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+        .hub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
 
         .ribbon-wrapper { width: 150px; height: 150px; overflow: hidden; position: absolute; top: 0; right: 0; z-index: 10; pointer-events: none; }
         .ribbon {
@@ -134,18 +134,13 @@
             border-radius: 4px;
         }
 
-        @media (max-width: 1024px) { .hub-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 1024px) { .hub-grid { grid-template-columns: 1fr; } }
         @media (max-width: 768px) {
             .hub-grid { grid-template-columns: 1fr; gap: 60px; }
         }
     </style>
 </head>
 <body style="background:#000;">
-
-    <div id="loader">ESTABLISHING SECURE CONNECTION...</div>
-    <script>
-        if (sessionStorage.getItem('hasSeenIntro')) { document.getElementById('loader').style.display = 'none'; }
-    </script>
 
     <header>
         <a href="index.html" class="logo-container">
@@ -181,6 +176,7 @@
         </div>
 
         <div class="hub-grid">
+            <!-- MODULE 01: VAULT -->
             <a href="vault.html" class="hub-tile">
                 <div class="ribbon-wrapper"><div class="ribbon">LIVE ON GOOGLE PLAY</div></div>
                 <div class="hub-gallery">
@@ -195,6 +191,22 @@
                 </div>
             </a>
 
+            <!-- MODULE 02: DRAWING WORDS -->
+            <a href="drawingwords.html" class="hub-tile">
+                <div class="ribbon-wrapper"><div class="ribbon">LIVE ON GOOGLE PLAY</div></div>
+                <div class="hub-gallery">
+                    <img src="drawing-photos/store_main.png" class="hub-img">
+                    <img src="drawing-photos/hand_tapping.jpeg" class="hub-img">
+                    <img src="drawing-photos/diary_mic.jpeg" class="hub-img">
+                </div>
+                <div class="hub-info">
+                    <h3 class="hub-title" style="color: var(--gold) !important;">DRAWING WORDS</h3>
+                    <p class="hub-desc">Inspired by Harper Mary. A secret creative sanctuary.</p>
+                    <div class="deploy-btn">OPEN INTEL 02 ❯</div>
+                </div>
+            </a>
+
+            <!-- MODULE 03: CALORIES -->
             <a href="calories.html" class="hub-tile">
                 <div class="ribbon-wrapper"><div class="ribbon">IN BETA</div></div>
                 <div class="hub-gallery">
@@ -205,10 +217,11 @@
                 <div class="hub-info">
                     <h3 class="hub-title" style="color: var(--gold) !important;">ACE CALORIE TRACKER</h3>
                     <p class="hub-desc">High-performance macro tracking.</p>
-                    <div class="deploy-btn">OPEN INTEL 02 ❯</div>
+                    <div class="deploy-btn">OPEN INTEL 03 ❯</div>
                 </div>
             </a>
 
+            <!-- MODULE 04: TRUTH -->
             <a href="truth.html" class="hub-tile">
                 <div class="ribbon-wrapper"><div class="ribbon">Coming Soon</div></div>
                 <div class="hub-gallery">
@@ -219,7 +232,7 @@
                 <div class="hub-info">
                     <h3 class="hub-title" style="color: var(--gold) !important;">SPEAK YOUR TRUTH</h3>
                     <p class="hub-desc">Anonymous mental health sanctuary.</p>
-                    <div class="deploy-btn">OPEN INTEL 03 ❯</div>
+                    <div class="deploy-btn">OPEN INTEL 04 ❯</div>
                 </div>
             </a>
         </div>
@@ -246,19 +259,6 @@
     </footer>
 
     <script>
-        // Smooth Loader for Mobile
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            if (sessionStorage.getItem('hasSeenIntro')) { loader.remove(); return; }
-            setTimeout(() => {
-                loader.textContent = 'CONNECTION ESTABLISHED [OK]';
-                setTimeout(() => {
-                    loader.style.opacity = '0';
-                    setTimeout(() => { loader.remove(); sessionStorage.setItem('hasSeenIntro', 'true'); }, 500);
-                }, 800);
-            }, 1000);
-        });
-
         // Touch-Aware Background Glow
         const trackMouse = (e) => {
             const x = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
@@ -268,6 +268,7 @@
         };
         document.addEventListener('mousemove', trackMouse);
         document.addEventListener('touchmove', trackMouse);
+
 
         // Auto-Cycling Hub Screenshots - FIXED to allow manual scroll
         const tiles = document.querySelectorAll('.hub-tile');
