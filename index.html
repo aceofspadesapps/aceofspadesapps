@@ -28,7 +28,7 @@
             text-transform: uppercase;
         }
 
-        .hub-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
+        .hub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 40px; }
 
         .ribbon-wrapper { width: 150px; height: 150px; overflow: hidden; position: absolute; top: 0; right: 0; z-index: 10; pointer-events: none; }
         .ribbon {
@@ -70,9 +70,6 @@
             border-radius: 10px;
             border: 2px solid #000;
         }
-
-
-
 
         .hub-img {
             flex: 0 0 100%;
@@ -206,7 +203,22 @@
                 </div>
             </a>
 
-            <!-- MODULE 03: CALORIES -->
+            <!-- MODULE 03: AUDIO PLAYER -->
+            <a href="audioplayer.html" class="hub-tile">
+                <div class="ribbon-wrapper"><div class="ribbon">IN DEVELOPMENT</div></div>
+                <div class="hub-gallery">
+                    <img src="audio-photos/main.jpg" class="hub-img">
+                    <img src="audio-photos/albums.jpg" class="hub-img">
+                    <img src="audio-photos/settings.jpg" class="hub-img">
+                </div>
+                <div class="hub-info">
+                    <h3 class="hub-title" style="color: var(--gold) !important;">ACE AUDIO PLAYER</h3>
+                    <p class="hub-desc">High-performance Pro-X audio engine.</p>
+                    <div class="deploy-btn">OPEN INTEL 03 ❯</div>
+                </div>
+            </a>
+
+            <!-- MODULE 04: CALORIES -->
             <a href="calories.html" class="hub-tile">
                 <div class="ribbon-wrapper"><div class="ribbon">IN BETA</div></div>
                 <div class="hub-gallery">
@@ -217,11 +229,11 @@
                 <div class="hub-info">
                     <h3 class="hub-title" style="color: var(--gold) !important;">ACE CALORIE TRACKER</h3>
                     <p class="hub-desc">High-performance macro tracking.</p>
-                    <div class="deploy-btn">OPEN INTEL 03 ❯</div>
+                    <div class="deploy-btn">OPEN INTEL 04 ❯</div>
                 </div>
             </a>
 
-            <!-- MODULE 04: TRUTH -->
+            <!-- MODULE 05: TRUTH -->
             <a href="truth.html" class="hub-tile">
                 <div class="ribbon-wrapper"><div class="ribbon">Coming Soon</div></div>
                 <div class="hub-gallery">
@@ -232,7 +244,7 @@
                 <div class="hub-info">
                     <h3 class="hub-title" style="color: var(--gold) !important;">SPEAK YOUR TRUTH</h3>
                     <p class="hub-desc">Anonymous mental health sanctuary.</p>
-                    <div class="deploy-btn">OPEN INTEL 04 ❯</div>
+                    <div class="deploy-btn">OPEN INTEL 05 ❯</div>
                 </div>
             </a>
         </div>
@@ -268,7 +280,6 @@
         };
         document.addEventListener('mousemove', trackMouse);
         document.addEventListener('touchmove', trackMouse);
-
 
         // Auto-Cycling Hub Screenshots - FIXED to allow manual scroll
         const tiles = document.querySelectorAll('.hub-tile');
